@@ -1,0 +1,11 @@
+.logo {
+  margin: 0;
+  padding-bottom: 41px;
+}
+
+@media (max-width: 425px) {/* CSS для экранов меньше 425px */
+  .logo {
+    padding-left: 27px;
+    padding-bottom: 31.6px;
+  }
+}
