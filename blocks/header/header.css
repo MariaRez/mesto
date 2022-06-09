@@ -6,6 +6,7 @@
   justify-content: start;
   border-bottom: 1px solid #545454;
 }
+
 @media (max-width: 425px) {/* CSS для экранов меньше 425px */
   .header {
    max-width: 100%;

@@ -1,0 +1,13 @@
+.profile__edit-bottom {
+   margin: 0;
+   padding: 0;
+   max-width: 24px;
+   max-height: 24px;
+}
+
+@media (max-width: 425px) {/* CSS для экранов меньше 425px */
+    .profile__edit-bottom {
+        max-width: 18px;
+        max-height: 18px;
+    }
+}

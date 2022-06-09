@@ -4,5 +4,13 @@
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/logo/logo.css);
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__profile-info/profile__profile-info.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__edit-bottom/profile__edit-bottom.css);
+@import url(../blocks/profile/__description/profile__description.css);
+@import url(../blocks/profile/__add-bottom/profile__add-bottom.css);
+@import url(../blocks/profile/__add-bottom-img/profile__add-bottom-img.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
