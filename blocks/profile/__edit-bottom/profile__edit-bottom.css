@@ -1,13 +1,24 @@
 .profile__edit-bottom {
-   margin: 0;
-   padding: 0;
-   max-width: 24px;
-   max-height: 24px;
+    width: 24px;
+    height: 24px;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    opacity: 1;
 }
+
+.profile__edit-bottom:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
 
 @media (max-width: 425px) {/* CSS для экранов меньше 425px */
     .profile__edit-bottom {
-        max-width: 18px;
-        max-height: 18px;
+        width: 18px;
+        height: 18px;
     }
 }

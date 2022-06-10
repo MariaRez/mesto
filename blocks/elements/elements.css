@@ -1,5 +1,6 @@
 .elements {
 margin: 0 auto;
+padding-top: 51px;
 max-width: 68.75%;
 display: grid;
 grid-template-columns: repeat(3, 282px);
@@ -26,5 +27,6 @@ justify-content: center;
 @media (max-width: 425px) {/* CSS для экранов меньше 425px */
     .elements {
         min-width: 88.125%;
+        padding-top: 36px;
     }
 }
