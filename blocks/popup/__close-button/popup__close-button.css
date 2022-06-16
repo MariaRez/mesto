@@ -7,9 +7,14 @@
     width: 32px;
     height: 32px;
     background-color: rgba(0,0,0,0);
+    background-image: url(../../../images/Close_Icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     border: none;
+    outline: none;
     opacity: 1;
     cursor: pointer;
+    transition: opacity 0.3s ease;
 }
 
 .popup__close-botton:hover {

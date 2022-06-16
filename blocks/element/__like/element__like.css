@@ -1,7 +1,12 @@
 .element__like {
-    max-width: 22px;
-    max-height: 19px;
+    min-width: 22px;
+    min-height: 19px;
     opacity: 1;
+    transition: opacity 0.3s ease;
+    background-image: url(../../../images/like.svg);
+    background-color: #fff;
+    border: none;
+    outline: none;
 }
 
 .element__like:hover {

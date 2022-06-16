@@ -7,7 +7,9 @@
     justify-content: center;
     align-items: center;
     background-color: #000;
+    outline: none;
     opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .profile__edit-bottom:hover{

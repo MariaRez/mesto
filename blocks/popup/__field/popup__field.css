@@ -1,0 +1,14 @@
+.popup__field {
+    background-color:#fff;
+    outline: none;
+    padding: 0;
+    min-width: 358px;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+    
+    @media (max-width: 767px) { 
+        .popup__field {
+            min-width: 238px;
+        }
+}
