@@ -7,10 +7,14 @@
    min-height: 50px;
    box-sizing: border-box;
    border: 2px solid #fff;
+   border-radius: 2px;
    display: flex;
    justify-content: center;
    align-items: center;
    background-color: #000;
+   background-image: url(../../../images//plus_big.svg);
+   background-repeat: no-repeat;
+   background-position: center;
    opacity: 1;
    transition: opacity 0.3s ease;
 } 
@@ -30,6 +34,7 @@
 
 @media (max-width: 425px) {/* CSS для экранов меньше 425px */
     .profile__add-bottom {
-        min-width: 88.125%;
+        min-width: 282px;
+        background-image: url(../../../images/plus.svg);
     }
 }

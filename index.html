@@ -17,11 +17,11 @@
        <div class="profile__profile-info">
            <div class="profile__name-button">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__edit-bottom" type="button"><img src="images/edit_buttom.svg" alt="Редактировать профиль"></button>
+            <button class="profile__edit-bottom" type="button"></button>
            </div>
           <p class="profile__description">Исследователь океана</p>
        </div>
-       <button class="profile__add-bottom" type="button"><img src="images/Plus.svg" alt="Добавить" class="profile__add-bottom-img"></button>
+       <button class="profile__add-bottom" type="button"></button>
   </section>
   <section class="elements">
     <div class="element">
@@ -72,14 +72,16 @@
    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
   <div class="popup">
-    <form class="popup__container">
+    <div class="popup__container"> 
+    <form name="formUser">
         <h3 class="popup__title">Редактировать профиль</h3>
         <input type="text" placeholder="Имя" class="popup__field popup__field_type_name" name="Name" id="name">
-        <input type="text" placeholder="О себе" class="popup__field popup__field_type_description" name="Aboutuser" id="description">
+        <input type="text" placeholder="О себе" class="popup__field popup__field_type_description" name="aboutUser" id="description">
         <button class="popup__field-button" type="submit">Сохранить</button>
         <button class="popup__close-botton" type="button"></button>
     </form>
-</div>
+    </div>
+   </div>
  </div>
  <script src="./scripts/index.js"></script>
 </body>

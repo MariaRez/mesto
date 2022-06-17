@@ -6,9 +6,11 @@
     font-size: 18px;
     color: #FFFFFF;
     min-width: 336px;
+    max-width: 336px;
     padding-top: 16px;
     text-overflow: ellipsis;
-    white-space: wrap;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media (max-width: 767px) {/* CSS для экранов меньше 425px */
@@ -24,5 +26,6 @@
         font-size: 14px;
         line-height: 17px;
         min-width: 282px;
+        max-width: 282px;
     }
 }

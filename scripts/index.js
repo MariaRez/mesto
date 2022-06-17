@@ -1,29 +1,29 @@
-const EditPopupButton = document.querySelector('.profile__edit-bottom');
-const ClosePopupButton = document.querySelector('.popup__close-botton');
-const Popup = document.querySelector('.popup');
-const FormElement = document.querySelector('.popup__container')
-const ProfileName = document.querySelector('.profile__name');
-const ProfileDescription = document.querySelector('.profile__description');
-const ProfileNewName = document.querySelector('.popup__field_type_name');
-const ProfileNewDescription = document.querySelector('.popup__field_type_description');
+const editPopupButton = document.querySelector('.profile__edit-bottom');
+const closePopupButton = document.querySelector('.popup__close-botton');
+const popup = document.querySelector('.popup');
+const formElement = document.querySelector('.popup__container')
+const profileName = document.querySelector('.profile__name');
+const profileDescription = document.querySelector('.profile__description');
+const profileNewName = document.querySelector('.popup__field_type_name');
+const profileNewDescription = document.querySelector('.popup__field_type_description');
 
 function OpenPopup() {
-    ProfileNewName.value = ProfileName.textContent;
-    ProfileNewDescription.value = ProfileDescription.textContent;
-    Popup.classList.add('popup_opened');
+    profileNewName.value = profileName.textContent;
+    profileNewDescription.value = profileDescription.textContent;
+    popup.classList.add('popup_opened');
 };
 
 function ClosePopup() {
-    Popup.classList.remove('popup_opened')
+    popup.classList.remove('popup_opened')
 };
 
 function formSubmitHandler (evt) {
     evt.preventDefault(); 
-    ProfileName.textContent = ProfileNewName.value;
-    ProfileDescription.textContent = ProfileNewDescription.value;
-    Popup.classList.remove('popup_opened');
+    profileName.textContent = profileNewName.value;
+    profileDescription.textContent = profileNewDescription.value;
+    popup.classList.remove('popup_opened');
 }
 
-EditPopupButton.addEventListener('click', OpenPopup);
-ClosePopupButton.addEventListener('click', ClosePopup);
-FormElement.addEventListener('submit', formSubmitHandler); 
+editPopupButton.addEventListener('click', OpenPopup);
+closePopupButton.addEventListener('click', ClosePopup);
+formElement.addEventListener('submit', formSubmitHandler); 

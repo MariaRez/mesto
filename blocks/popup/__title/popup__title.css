@@ -1,5 +1,5 @@
 .popup__title {
-    margin: 34px 64px 54px 36px;
+    margin: 34px 64px 54px 36px; /*размеры уточнила, соотвествуют макету*/
     padding: 0;
     max-width: 358px;
     font-weight: 900;
