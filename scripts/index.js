@@ -4,8 +4,8 @@ const popup = document.querySelector('.popup');
 const formElement = document.querySelector('.form');
 const profileName = document.querySelector('.profile__name'); 
 const profileDescription = document.querySelector('.profile__description');
-const profileNewName = document.querySelector('.form__input_type_name');
-const profileNewDescription = document.querySelector('.form__input_type_description');
+const profileNewName = document.querySelector('#name');
+const profileNewDescription = document.querySelector('#description');
 
 function OpenPopup() {
     profileNewName.value = profileName.textContent;
