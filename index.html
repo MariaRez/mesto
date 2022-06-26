@@ -46,7 +46,7 @@
         <h3 class="popup__title">Новое место</h3>
         <input type="text" placeholder="Название" class="popup__field popup__field_type_placename form__input" name="placeName" id="placeName">
         <input type="text" placeholder="Ссылка на картинку" class="popup__field popup__field_type_placelink form__input" name="link" id="link">
-        <button class="popup__field-button" type="submit">Создать</button>
+        <button class="popup__field-button popup__field-button_place_card" type="submit">Создать</button>
         <button class="popup__close-botton popup__close-botton_place_card" type="button"></button>
     </form>
     </div>
@@ -59,6 +59,10 @@
          <h3 class="element__text"></h3>
          <button class="element__like" type="button"></button>
         </div>
+    </div>
+    <div class="popup popup_place_image">
+        <img class="popup__image">
+        <h4 class="popup__text"></h4>
     </div>
   </template>
  <script src="./scripts/index.js"></script>
