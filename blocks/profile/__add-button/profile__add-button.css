@@ -1,4 +1,4 @@
-.profile__add-bottom {
+.profile__add-button {
    margin: 0;
    outline: none;
    margin-left: auto;/*для сдвига в бок на маленьких разрешениях необходимо подвинуть в центр кнопку*/
@@ -19,21 +19,21 @@
    transition: opacity 0.3s ease;
 } 
 
-.profile__add-bottom:hover{
+.profile__add-button:hover{
     opacity: 0.6;
     cursor: pointer;
 }
 
 
 @media (max-width: 1279px) {
-    .profile__add-bottom {
+    .profile__add-button {
         margin: 0 auto;
     }
 }
 
 
 @media (max-width: 425px) {/* CSS для экранов меньше 425px */
-    .profile__add-bottom {
+    .profile__add-button {
         min-width: 282px;
         background-image: url(../../../images/plus.svg);
     }
