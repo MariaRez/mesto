@@ -106,3 +106,28 @@ function setEventElement(htmlElement) {
 }; 
 
 renderInitialCards();
+
+const placeNewName = document.querySelector('#placeName');
+const placeNewImage = document.querySelector('#link');
+
+function addCard(nameValue,placeValue) {
+  const cardElement = initialCardsTemplate.cloneNode(true);
+  cardElement.querySelector('.element__text').textContent = nameValue;
+  cardElement.querySelector('.element__image').src = placeValue;
+  cardElement.querySelector('.popup__text').textContent = nameValue;
+  cardElement.querySelector('.popup__image').src = placeValue;
+  setEventElement(cardElement); 
+  elements.prepend(cardElement); 
+}
+
+function formSubmitHandlerPlace (evt) {
+  evt.preventDefault(); 
+  popupCard.classList.remove('popup_opened');
+  addCard(placeNewName.value,placeNewImage.value);
+  placeNewName.value ='';
+  placeNewImage.value ='';
+};
+
+
+const formCard = document.querySelector('.form_place_card');
+formCard.addEventListener('submit', formSubmitHandlerPlace); 
