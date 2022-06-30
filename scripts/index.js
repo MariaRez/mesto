@@ -71,8 +71,10 @@ const renderInitialCard = (element) => {
   const htmlElement = initialCardsTemplate.cloneNode(true); 
   htmlElement.querySelector('.element__text').textContent = element.name; 
   htmlElement.querySelector('.element__image').src = element.link;
+  htmlElement.querySelector('.element__image').alt = element.name;
   htmlElement.querySelector('.popup__text').textContent = element.name; 
   htmlElement.querySelector('.popup__image').src = element.link;
+  htmlElement.querySelector('.popup__image').alt = element.name;
   setEventElement(htmlElement); 
   elements.append(htmlElement);
 };
@@ -114,8 +116,10 @@ function addCard(nameValue,placeValue) {
   const cardElement = initialCardsTemplate.cloneNode(true);
   cardElement.querySelector('.element__text').textContent = nameValue;
   cardElement.querySelector('.element__image').src = placeValue;
+  cardElement.querySelector('.element__image').alt = nameValue;
   cardElement.querySelector('.popup__text').textContent = nameValue;
   cardElement.querySelector('.popup__image').src = placeValue;
+  cardElement.querySelector('.popup__image').alt = nameValue;;
   setEventElement(cardElement); 
   elements.prepend(cardElement); 
 }
