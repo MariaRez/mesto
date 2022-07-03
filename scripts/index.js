@@ -10,10 +10,12 @@ const popupCard = document.querySelector('.popup_place_card');
 const addPopupCardButton = document.querySelector('.profile__add-button');
 const closePopupCardButton = document.querySelector('.popup__close-button_place_card');
 
-const toggleModalWindow = (popup) => {
-  popup.classList.toggle('popup_opened');
-  profileNewName.value = profileName.textContent;
-  profileNewDescription.value = profileDescription.textContent;
+const openModalWindow = (popup) => {
+  popup.classList.add('popup_opened');
+}
+
+const closeModalWindow = (popup) => {
+  popup.classList.remove('popup_opened');
 }
 
 function formSubmitHandler (evt) {
@@ -23,39 +25,15 @@ function formSubmitHandler (evt) {
     popupProfile.classList.remove('popup_opened');
 };
 
-editPopupProfileButton.addEventListener('click', () => toggleModalWindow(popupProfile));
-closePopupProfileButton.addEventListener('click', () => toggleModalWindow(popupProfile));
+editPopupProfileButton.addEventListener('click', () => {
+  openModalWindow(popupProfile)
+  profileNewName.value = profileName.textContent;
+  profileNewDescription.value = profileDescription.textContent;
+});
+closePopupProfileButton.addEventListener('click', () => closeModalWindow(popupProfile));
 formElement.addEventListener('submit', formSubmitHandler); 
-addPopupCardButton.addEventListener('click', () => toggleModalWindow(popupCard));
-closePopupCardButton.addEventListener('click', () => toggleModalWindow(popupCard));
-
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+addPopupCardButton.addEventListener('click', () => openModalWindow(popupCard));
+closePopupCardButton.addEventListener('click', () => closeModalWindow(popupCard));
 
 const initialCardsTemplate = document.querySelector('.elements-template').content;
 const elements = document.querySelector('.elements');
@@ -87,10 +65,16 @@ function handlerLike (evt) {
   evt.target.classList.toggle('element__like_active');
 }
 
-function handlertogglePopupImage (evt) {
+function handlerOpenPopupImage (evt) {
   const htmlElement = evt.target.closest('.element');
   const popupImage = htmlElement.querySelector('.popup_place_image');
-  toggleModalWindow(popupImage);
+  openModalWindow(popupImage);
+}
+
+function handlerClosePopupImage (evt) {
+  const htmlElement = evt.target.closest('.element');
+  const popupImage = htmlElement.querySelector('.popup_place_image');
+  closeModalWindow(popupImage);
 }
 
 function setEventElement(htmlElement) {
@@ -101,16 +85,14 @@ function setEventElement(htmlElement) {
    likeButton.addEventListener('click',handlerLike); 
 
    const openPopupImageButton = htmlElement.querySelector('.element__image'); 
-   openPopupImageButton.addEventListener('click', handlertogglePopupImage);
+   openPopupImageButton.addEventListener('click', handlerOpenPopupImage);
 
    const closePopupImageButton = htmlElement.querySelector('.popup__close-button_place_image'); 
-   closePopupImageButton.addEventListener('click', handlertogglePopupImage);
+   closePopupImageButton.addEventListener('click', handlerClosePopupImage);
 }; 
 
 renderInitialCards();
 
-const placeNewName = document.querySelector('#placeName');
-const placeNewImage = document.querySelector('#link');
 
 function addCard(nameValue,placeValue) {
   const cardElement = initialCardsTemplate.cloneNode(true);
@@ -126,10 +108,10 @@ function addCard(nameValue,placeValue) {
 
 function formSubmitHandlerPlace (evt) {
   evt.preventDefault(); 
-  popupCard.classList.remove('popup_opened');
-  addCard(placeNewName.value,placeNewImage.value);
-  placeNewName.value ='';
-  placeNewImage.value ='';
+  closeModalWindow(popupCard);
+  addCard(formInputname.value,formInputlink.value);
+  formInputname.value ='';
+  formInputlink.value ='';
 };
 
 
