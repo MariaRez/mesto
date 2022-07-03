@@ -45,11 +45,12 @@ const renderInitialCards = () => {
   initialCards.forEach(renderInitialCard);
 };
 
-const renderInitialCard = (element) => {
+function renderInitialCard (element) {
   const htmlElement = initialCardsTemplate.cloneNode(true); 
   htmlElement.querySelector('.element__text').textContent = element.name; 
-  htmlElement.querySelector('.element__image').src = element.link;
-  htmlElement.querySelector('.element__image').alt = element.name;
+  const Image = htmlElement.querySelector('.element__image');
+  Image.src = element.link;
+  Image.alt = element.name;
   htmlElement.querySelector('.popup__text').textContent = element.name; 
   htmlElement.querySelector('.popup__image').src = element.link;
   htmlElement.querySelector('.popup__image').alt = element.name;
@@ -93,12 +94,12 @@ function setEventElement(htmlElement) {
 
 renderInitialCards();
 
-
 function addCard(nameValue,placeValue) {
   const cardElement = initialCardsTemplate.cloneNode(true);
   cardElement.querySelector('.element__text').textContent = nameValue;
-  cardElement.querySelector('.element__image').src = placeValue;
-  cardElement.querySelector('.element__image').alt = nameValue;
+  const Image = cardElement.querySelector('.element__image');
+  Image.src = placeValue;
+  Image.alt = nameValue;
   cardElement.querySelector('.popup__text').textContent = nameValue;
   cardElement.querySelector('.popup__image').src = placeValue;
   cardElement.querySelector('.popup__image').alt = nameValue;;
