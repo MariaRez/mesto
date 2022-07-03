@@ -1,14 +1,14 @@
-const editPopupProfileButton = document.querySelector('.profile__edit-button');
-const closePopupProfileButton = document.querySelector('.popup__close-button_place_profile');
+const popupProfileButtonEdit = document.querySelector('.profile__edit-button');
+const popupProfileButtonClose = document.querySelector('.popup__close-button_place_profile');
 const popupProfile = document.querySelector('.popup_place_profile');
 const formElement = document.querySelector('.form_place_profile');
 const profileName = document.querySelector('.profile__name'); 
 const profileDescription = document.querySelector('.profile__description');
-const profileNewName = document.querySelector('#name');
-const profileNewDescription = document.querySelector('#description');
+const profileNewName = document.querySelector('.popup__field_type_name');
+const profileNewDescription = document.querySelector('.popup__field_type_description');
 const popupCard = document.querySelector('.popup_place_card');
-const addPopupCardButton = document.querySelector('.profile__add-button');
-const closePopupCardButton = document.querySelector('.popup__close-button_place_card');
+const popupCardButtonAdd = document.querySelector('.profile__add-button');
+const popupCardButtonClose = document.querySelector('.popup__close-button_place_card');
 
 const openModalWindow = (popup) => {
   popup.classList.add('popup_opened');
@@ -22,24 +22,24 @@ function formSubmitHandler (evt) {
     evt.preventDefault(); 
     profileName.textContent = profileNewName.value;
     profileDescription.textContent = profileNewDescription.value;
-    popupProfile.classList.remove('popup_opened');
+    closeModalWindow(popupProfile);
 };
 
-editPopupProfileButton.addEventListener('click', () => {
+popupProfileButtonEdit.addEventListener('click', () => {
   openModalWindow(popupProfile)
   profileNewName.value = profileName.textContent;
   profileNewDescription.value = profileDescription.textContent;
 });
-closePopupProfileButton.addEventListener('click', () => closeModalWindow(popupProfile));
+popupProfileButtonClose.addEventListener('click', () => closeModalWindow(popupProfile));
 formElement.addEventListener('submit', formSubmitHandler); 
-addPopupCardButton.addEventListener('click', () => openModalWindow(popupCard));
-closePopupCardButton.addEventListener('click', () => closeModalWindow(popupCard));
+popupCardButtonAdd.addEventListener('click', () => openModalWindow(popupCard));
+popupCardButtonClose.addEventListener('click', () => closeModalWindow(popupCard));
 
 const initialCardsTemplate = document.querySelector('.elements-template').content;
 const elements = document.querySelector('.elements');
 const formButton = document.querySelector('.popup__field-button_place_card');
-const formInputname = document.querySelector('#placeName');
-const formInputlink = document.querySelector('#link');
+const formInputName = document.querySelector('.popup__field_type_placename');
+const formInputLink = document.querySelector('.popup__field_type_placelink');
 
 const renderInitialCards = () => {
   initialCards.forEach(renderInitialCard);
@@ -78,17 +78,17 @@ function handlerClosePopupImage (evt) {
 }
 
 function setEventElement(htmlElement) {
-   const deleteButton = htmlElement.querySelector('.element__trash'); 
-   deleteButton.addEventListener('click',handlerDelete); 
+   const buttonDelete = htmlElement.querySelector('.element__trash'); 
+   buttonDelete.addEventListener('click',handlerDelete); 
 
-   const likeButton = htmlElement.querySelector('.element__like'); 
-   likeButton.addEventListener('click',handlerLike); 
+   const buttonLike = htmlElement.querySelector('.element__like'); 
+   buttonLike.addEventListener('click',handlerLike); 
 
-   const openPopupImageButton = htmlElement.querySelector('.element__image'); 
-   openPopupImageButton.addEventListener('click', handlerOpenPopupImage);
+   const popupImageButtonOpen = htmlElement.querySelector('.element__image'); 
+   popupImageButtonOpen.addEventListener('click', handlerOpenPopupImage);
 
-   const closePopupImageButton = htmlElement.querySelector('.popup__close-button_place_image'); 
-   closePopupImageButton.addEventListener('click', handlerClosePopupImage);
+   const popupImageButtonClose = htmlElement.querySelector('.popup__close-button_place_image'); 
+   popupImageButtonClose.addEventListener('click', handlerClosePopupImage);
 }; 
 
 renderInitialCards();
@@ -109,9 +109,9 @@ function addCard(nameValue,placeValue) {
 function formSubmitHandlerPlace (evt) {
   evt.preventDefault(); 
   closeModalWindow(popupCard);
-  addCard(formInputname.value,formInputlink.value);
-  formInputname.value ='';
-  formInputlink.value ='';
+  addCard(formInputName.value,formInputLink.value);
+  formInputName.value ='';
+  formInputLink.value ='';
 };
 
 
