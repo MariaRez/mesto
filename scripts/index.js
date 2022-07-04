@@ -96,3 +96,22 @@ function formSubmitHandlerPlace (evt) {
 
 const formCard = document.querySelector('.form_place_card');
 formCard.addEventListener('submit', formSubmitHandlerPlace); 
+
+/*попап с картинкой*/
+const popupImage = document.querySelector('.popup_place_image');
+const popupImageButtonOpen = document.querySelectorAll('.element__image');
+const popupImageButtonClose = document.querySelector('.popup__close-button_place_image');
+const popupImageActiveImage = document.querySelector('.popup__image');
+const popupImageActiveTitle = document.querySelector('.popup__text');
+/*открытие попапа с картинкой при нажатии на картинку карточки*/
+function openPopupImage (evt) {
+  openModalWindow (popupImage);
+  popupImageActiveImage.src = evt.target.src;
+  popupImageActiveImage.alt = evt.target.alt;
+  popupImageActiveTitle.textContent = evt.target.parentElement.querySelector('.element__text').textContent;
+}
+popupImageButtonOpen.forEach(function(button){
+  button.addEventListener('click',openPopupImage);
+});
+/*закрытие попапа с картинкой при нажатии на крестик*/
+popupImageButtonClose.addEventListener('click', () => closeModalWindow(popupImage));
