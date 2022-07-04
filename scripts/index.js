@@ -35,6 +35,8 @@ formElement.addEventListener('submit', formSubmitHandler);
 popupCardButtonAdd.addEventListener('click', () => openModalWindow(popupCard));
 popupCardButtonClose.addEventListener('click', () => closeModalWindow(popupCard));
 
+/* новый функционал */
+
 const initialCardsTemplate = document.querySelector('.elements-template').content;
 const elements = document.querySelector('.elements');
 const formButton = document.querySelector('.popup__field-button_place_card');
@@ -58,23 +60,6 @@ const renderInitialCards = () => {
 
 renderInitialCards();
 
-/* функции удаления и лайка удаления карточки */
-function handlerDelete (evt) {
-  evt.target.closest('.element').remove();
-};
-
-function handlerLike (evt) {
-  evt.target.classList.toggle('element__like_active');
-};
-
-function setEventElement(htmlElement) {
-   const buttonDelete = htmlElement.querySelector('.element__trash'); 
-   buttonDelete.addEventListener('click',handlerDelete); 
-
-   const buttonLike = htmlElement.querySelector('.element__like'); 
-   buttonLike.addEventListener('click',handlerLike);
-}; 
-
 /*функция для добавления новой карточки*/
 function addCard(nameValue,placeValue) {
   const cardElement = initialCardsTemplate.cloneNode(true);
@@ -96,6 +81,23 @@ function formSubmitHandlerPlace (evt) {
 
 const formCard = document.querySelector('.form_place_card');
 formCard.addEventListener('submit', formSubmitHandlerPlace); 
+
+/* функции удаления и лайка удаления карточки */
+function handlerDelete (evt) {
+  evt.target.closest('.element').remove();
+};
+
+function handlerLike (evt) {
+  evt.target.classList.toggle('element__like_active');
+};
+
+function setEventElement(htmlElement) {
+   const buttonDelete = htmlElement.querySelector('.element__trash'); 
+   buttonDelete.addEventListener('click',handlerDelete); 
+
+   const buttonLike = htmlElement.querySelector('.element__like'); 
+   buttonLike.addEventListener('click',handlerLike);
+}; 
 
 /*попап с картинкой*/
 const popupImage = document.querySelector('.popup_place_image');
