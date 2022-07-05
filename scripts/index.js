@@ -81,7 +81,7 @@ function formSubmitHandlerPlace (evt) {
 const formCard = document.querySelector('.form_place_card');
 formCard.addEventListener('submit', formSubmitHandlerPlace); 
 
-/* функции удаления и лайка удаления карточки */
+/* функции удаления,лайка и открытия попапа карточки */
 function handlerDelete (evt) {
   evt.target.closest('.element').remove();
 };
@@ -90,12 +90,22 @@ function handlerLike (evt) {
   evt.target.classList.toggle('element__like_active');
 };
 
+function openPopupImage (evt) {
+  openModalWindow (popupImage);
+  popupImageActiveImage.src = evt.target.src;
+  popupImageActiveImage.alt = evt.target.alt;
+  popupImageActiveTitle.textContent = evt.target.parentElement.querySelector('.element__text').textContent;
+}
+
 function setEventElement(htmlElement) {
    const buttonDelete = htmlElement.querySelector('.element__trash'); 
    buttonDelete.addEventListener('click',handlerDelete); 
 
    const buttonLike = htmlElement.querySelector('.element__like'); 
    buttonLike.addEventListener('click',handlerLike);
+
+   const buttonOpenImagePopup = htmlElement.querySelector('.element__image'); 
+   buttonOpenImagePopup.addEventListener('click',openPopupImage);
 }; 
 
 /*попап с картинкой*/
@@ -105,17 +115,12 @@ const popupImageButtonClose = document.querySelector('.popup__close-button_place
 const popupImageActiveImage = document.querySelector('.popup__image');
 const popupImageActiveTitle = document.querySelector('.popup__text');
 
-/*открытие попапа с картинкой при нажатии на картинку карточки*/
 function openPopupImage (evt) {
   openModalWindow (popupImage);
   popupImageActiveImage.src = evt.target.src;
   popupImageActiveImage.alt = evt.target.alt;
   popupImageActiveTitle.textContent = evt.target.parentElement.querySelector('.element__text').textContent;
 }
-
-popupImageButtonOpen.forEach(function(button){
-  button.addEventListener('click',openPopupImage);
-});
 
 /*закрытие попапа с картинкой при нажатии на крестик*/
 popupImageButtonClose.addEventListener('click', () => closeModalWindow(popupImage));
