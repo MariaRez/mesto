@@ -56,17 +56,13 @@ function createCard (element) {
   image.src = element.link;
   image.alt = element.name;
   setEventElement(htmlElement); 
-  prependToContainer(elements,htmlElement);
   return htmlElement;
 };
 const reverseInitialCards = initialCards.reverse();
 
-const renderInitialCards = () => {
-  reverseInitialCards.forEach(createCard);
-};
-
-
-renderInitialCards();
+reverseInitialCards.forEach((element) => {
+  prependToContainer(elements,createCard(element));
+});
 
 /*функция для добавления новой карточки*/
 
@@ -75,6 +71,7 @@ function submitHandlerFormPlace (evt) {
   closeModalWindow(popupCard);
   const inputObject = { name: formInputName.value, link: formInputLink.value };
   createCard (inputObject);
+  prependToContainer(elements, createCard (inputObject));
   formInputName.value ='';
   formInputLink.value ='';
   };
