@@ -18,7 +18,7 @@ const closeModalWindow = (popup) => {
   popup.classList.remove('popup_opened');
 }
 
-function formSubmitHandler (evt) {
+function submitHandlerFormProfile (evt) {
     evt.preventDefault(); 
     profileName.textContent = profileNewName.value;
     profileDescription.textContent = profileNewDescription.value;
@@ -31,7 +31,7 @@ popupProfileButtonEdit.addEventListener('click', () => {
   profileNewDescription.value = profileDescription.textContent;
 });
 popupProfileButtonClose.addEventListener('click', () => closeModalWindow(popupProfile));
-formElement.addEventListener('submit', formSubmitHandler); 
+formElement.addEventListener('submit', submitHandlerFormProfile); 
 popupCardButtonAdd.addEventListener('click', () => openModalWindow(popupCard));
 popupCardButtonClose.addEventListener('click', () => closeModalWindow(popupCard));
 
@@ -49,7 +49,7 @@ const prependToContainer = (container, element) => {
   container.prepend(element);
 }
 
-function renderInitialCard (element) {
+function createCard (element) {
   const htmlElement = initialCardsTemplate.cloneNode(true); 
   htmlElement.querySelector('.element__text').textContent = element.name; 
   const image = htmlElement.querySelector('.element__image');
@@ -62,47 +62,41 @@ function renderInitialCard (element) {
 const reverseInitialCards = initialCards.reverse();
 
 const renderInitialCards = () => {
-  reverseInitialCards.forEach(renderInitialCard);
+  reverseInitialCards.forEach(createCard);
 };
+
 
 renderInitialCards();
 
 /*функция для добавления новой карточки*/
 
-function formSubmitHandlerPlace (evt) {
+function submitHandlerFormPlace (evt) {
   evt.preventDefault(); 
   closeModalWindow(popupCard);
   const inputObject = { name: formInputName.value, link: formInputLink.value };
-  renderInitialCard (inputObject);
+  createCard (inputObject);
   formInputName.value ='';
   formInputLink.value ='';
   };
 
 const formCard = document.querySelector('.form_place_card');
-formCard.addEventListener('submit', formSubmitHandlerPlace); 
+formCard.addEventListener('submit', submitHandlerFormPlace); 
 
 /* функции удаления,лайка и открытия попапа карточки */
-function handlerDelete (evt) {
+function deleteHandler (evt) {
   evt.target.closest('.element').remove();
 };
 
-function handlerLike (evt) {
+function likeHandler (evt) {
   evt.target.classList.toggle('element__like_active');
 };
 
-function openPopupImage (evt) {
-  openModalWindow (popupImage);
-  popupImageActiveImage.src = evt.target.src;
-  popupImageActiveImage.alt = evt.target.alt;
-  popupImageActiveTitle.textContent = evt.target.parentElement.querySelector('.element__text').textContent;
-}
-
 function setEventElement(htmlElement) {
    const buttonDelete = htmlElement.querySelector('.element__trash'); 
-   buttonDelete.addEventListener('click',handlerDelete); 
+   buttonDelete.addEventListener('click',deleteHandler); 
 
    const buttonLike = htmlElement.querySelector('.element__like'); 
-   buttonLike.addEventListener('click',handlerLike);
+   buttonLike.addEventListener('click',likeHandler);
 
    const buttonOpenImagePopup = htmlElement.querySelector('.element__image'); 
    buttonOpenImagePopup.addEventListener('click',openPopupImage);
@@ -119,7 +113,7 @@ function openPopupImage (evt) {
   openModalWindow (popupImage);
   popupImageActiveImage.src = evt.target.src;
   popupImageActiveImage.alt = evt.target.alt;
-  popupImageActiveTitle.textContent = evt.target.parentElement.querySelector('.element__text').textContent;
+  popupImageActiveTitle.textContent = evt.target.alt;
 }
 
 /*закрытие попапа с картинкой при нажатии на крестик*/
