@@ -30,25 +30,29 @@
    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
   <div class="popup popup_place_profile">
-    <div class="popup__container"> 
-    <form name="form" class="form form_place_profile">
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <input type="text" placeholder="Имя" class="popup__field popup__field_type_name form__input" name="Name" id="name">
-        <input type="text" placeholder="О себе" class="popup__field popup__field_type_description form__input" name="aboutUser" id="description">
-        <button class="popup__field-button" type="submit">Сохранить</button>
+    <div class="popup__container">
+     <h3 class="popup__title">Редактировать профиль</h3>
+      <form name="form" class="form form_place_profile" novalidate>
+        <input type="text" placeholder="Имя" class="popup__field popup__field_type_name form__input" name="Name" id="user-name" required minlength="2" maxlength="40">
+        <span id="user-name-error" class="error"></span> 
+        <input type="text" placeholder="О себе" class="popup__field popup__field_type_description form__input" name="about" id="description" required minlength="2" maxlength="200">
+        <span id="description-error" class="error"></span>
+        <button class="popup__button popup__button_active" type="submit">Сохранить</button>
         <button class="popup__close-button popup__close-button_place_profile" type="button"></button>
-    </form>
+      </form>
     </div>
    </div>
    <div class="popup popup_place_card">
     <div class="popup__container"> 
-    <form name="form" class="form form_place_card">
-        <h3 class="popup__title">Новое место</h3>
-        <input type="text" placeholder="Название" class="popup__field popup__field_type_placename form__input" name="placeName" id="placeName">
-        <input type="text" placeholder="Ссылка на картинку" class="popup__field popup__field_type_placelink form__input" name="link" id="link">
-        <button class="popup__field-button popup__field-button_place_card" type="submit">Создать</button>
+     <h3 class="popup__title">Новое место</h3>
+     <form name="form" class="form form_place_card" novalidate>
+        <input type="text" placeholder="Название" class="popup__field popup__field_type_placename form__input" name="name-card" id="name-card" required minlength="2" maxlength="30">
+        <span id="name-card-error" class="error"></span> 
+        <input type="url" placeholder="Ссылка на картинку" class="popup__field popup__field_type_placelink form__input" name="link" id="link" required>
+        <span id="link-error" class="error"></span>
+        <button class="popup__button popup__button_place_card" type="submit">Создать</button>
         <button class="popup__close-button popup__close-button_place_card" type="button"></button>
-    </form>
+     </form>
     </div>
    </div>
    <div class="popup popup_place_image">
