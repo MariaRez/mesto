@@ -30,7 +30,12 @@ popupProfileButtonEdit.addEventListener('click', () => {
   profileNewName.value = profileName.textContent;
   profileNewDescription.value = profileDescription.textContent;
 });
-popupProfileButtonClose.addEventListener('click', () => closeModalWindow(popupProfile));
+popupProfileButtonClose.addEventListener('click', (event) => {
+  if(event.target == event.currentTarget) {
+closeModalWindow(popupProfile);
+  }
+});
+
 formElement.addEventListener('submit', submitHandlerFormProfile); 
 popupCardButtonAdd.addEventListener('click', () => openModalWindow(popupCard));
 popupCardButtonClose.addEventListener('click', () => closeModalWindow(popupCard));
@@ -181,3 +186,22 @@ formCard.addEventListener('submit', sendForm);
 formCard.addEventListener('input', handlerInputForm);
 
 validateForm(formCard); //для проверки в самом начале - для этой формы обязательно
+
+// закрытие попапов по нажатию на overlay
+popupProfile.addEventListener('click', (event) => {
+  if(event.target == event.currentTarget) {
+closeModalWindow(popupProfile);
+  }
+});
+
+popupCard.addEventListener('click', (event) => {
+  if(event.target == event.currentTarget) {
+closeModalWindow(popupCard);
+  }
+});
+
+popupImage.addEventListener('click', (event) => {
+  if(event.target == event.currentTarget) {
+closeModalWindow(popupImage);
+  }
+});
