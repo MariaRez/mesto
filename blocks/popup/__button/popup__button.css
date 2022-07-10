@@ -1,7 +1,7 @@
 .popup__button {
     box-sizing: border-box;
     outline: 0;
-    margin: 0 36px 37px 36px;
+    margin: 18px 36px 37px 36px;
     padding-top: 14px;
     padding-bottom: 18px;
     min-width: 358px;
@@ -18,7 +18,7 @@
     .popup__button {
         min-width: 238px;
         padding-bottom: 14px;
-        margin: 0 22px 25px 22px;
+        margin: 15px 22px 25px 22px;
         font-size: 14px;
         line-height: 17px;
     }
