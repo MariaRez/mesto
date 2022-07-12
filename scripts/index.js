@@ -205,3 +205,25 @@ popupImage.addEventListener('click', (event) => {
 closeModalWindow(popupImage);
   }
 });
+
+// закрытие попапов по нажатию на Esc - перепроверить результат
+popupProfile.addEventListener('keypress',(event) => {
+  if(event.keyCode === 'Escape') {
+    event.preventDefault();
+    closeModalWindow(popupProfile);
+  }
+});
+
+popupCard.addEventListener('keypress',(event) => {
+  if(event.keyCode === 'Escape') {
+    event.preventDefault();
+    closeModalWindow(popupCard);
+  }
+});
+
+popupImage.addEventListener('keypress',(event) => {
+  if(event.keyCode === 'Escape') {
+    event.preventDefault();
+    closeModalWindow(popupImage);
+  }
+});
