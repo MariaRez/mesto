@@ -8,3 +8,7 @@
     flex-direction: column;
     position: relative;
 }
+
+.element:hover{
+ cursor: pointer;
+}

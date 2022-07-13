@@ -22,11 +22,11 @@ const checkInputValidity = (formElement, inputElement) => {
 
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.remove('popup__button_active');
+    /*buttonElement.classList.remove('popup__button_active');*/
     buttonElement.classList.add('popup__button_disabled');
     buttonElement.setAttribute('disabled', true)
   } else {
-    buttonElement.classList.add('popup__button_active');
+    /*buttonElement.classList.add('popup__button_active');*/
     buttonElement.classList.remove('popup__button_disabled');
     buttonElement.removeAttribute('disabled')
   }
