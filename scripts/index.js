@@ -31,6 +31,9 @@ popupProfileButtonEdit.addEventListener("click", () => {
   openModalWindow(popupProfile);
   profileNewName.value = profileName.textContent;
   profileNewDescription.value = profileDescription.textContent;
+  const buttonElement = popupProfile.querySelector(".popup__button");
+  buttonElement.classList.remove("popup__button_disabled");
+  buttonElement.removeAttribute("disabled");
 });
 
 formProfile.addEventListener("submit", submitHandlerFormProfile);
@@ -41,7 +44,6 @@ popupCardButtonAdd.addEventListener("click", () => openModalWindow(popupCard));
 const initialCardsTemplate =
   document.querySelector(".elements-template").content;
 const elements = document.querySelector(".elements");
-const formButton = document.querySelector(".popup__button_place_card");
 const formInputName = document.querySelector(".popup__field_type_placename");
 const formInputLink = document.querySelector(".popup__field_type_placelink");
 
@@ -70,6 +72,9 @@ reverseInitialCards.forEach((element) => {
 
 function submitHandlerFormPlace() {
   closeModalWindow(popupCard);
+  const buttonElement = popupCard.querySelector(".popup__button");
+  buttonElement.classList.add("popup__button_disabled");
+  buttonElement.setAttribute("disabled", true);
   const inputObject = { name: formInputName.value, link: formInputLink.value };
   createCard(inputObject);
   prependToContainer(elements, createCard(inputObject));
