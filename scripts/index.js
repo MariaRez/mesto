@@ -32,11 +32,6 @@ popupProfileButtonEdit.addEventListener('click', () => {
   profileNewName.value = profileName.textContent;
   profileNewDescription.value = profileDescription.textContent;
 });
-popupProfileButtonClose.addEventListener('click', (event) => {
-  if(event.target == event.currentTarget) {
-closeModalWindow(popupProfile);
-  }
-});
 
 formProfile.addEventListener('submit', submitHandlerFormProfile); 
 popupCardButtonAdd.addEventListener('click', () => openModalWindow(popupCard));
