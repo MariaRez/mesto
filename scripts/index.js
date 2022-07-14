@@ -132,3 +132,14 @@ function closeOnEsc(evt) {
     closeModalWindow(activePopup);
   }
 }
+
+validationSettings = {
+  formElement: ".form",
+  inputElement: ".popup__field",
+  buttonElement: ".popup__button",
+  inactiveButtonClass: ".popup__button_disabled",
+  inputErrorClass: ".popup__field_type_error",
+  errorElement: ".error",
+};
+
+enableValidation(validationSettings);
