@@ -1,7 +1,8 @@
+const keyEscape = "Escape";
 const popupProfileButtonEdit = document.querySelector('.profile__edit-button');
 const popupProfileButtonClose = document.querySelector('.popup__close-button_place_profile');
 const popupProfile = document.querySelector('.popup_place_profile');
-const formElement = document.querySelector('.form_place_profile');
+const formProfile = document.querySelector('.form_place_profile');
 const profileName = document.querySelector('.profile__name'); 
 const profileDescription = document.querySelector('.profile__description');
 const profileNewName = document.querySelector('.popup__field_type_name');
@@ -12,16 +13,15 @@ const popupCardButtonClose = document.querySelector('.popup__close-button_place_
 
 const openModalWindow = (popup) => {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closeEsc);// добавляем слушатель при открытом попапе - при нажатии закрываем попап
+  document.addEventListener('keydown', closeOnEsc);// добавляем слушатель при открытом попапе - при нажатии закрываем попап
 }
 
 const closeModalWindow = (popup) => {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closeEsc);// убираем слушатель
+  document.removeEventListener('keydown', closeOnEsc);// убираем слушатель
 }
 
-function submitHandlerFormProfile (evt) {
-    evt.preventDefault(); 
+function submitHandlerFormProfile () {
     profileName.textContent = profileNewName.value;
     profileDescription.textContent = profileNewDescription.value;
     closeModalWindow(popupProfile);
@@ -38,7 +38,7 @@ closeModalWindow(popupProfile);
   }
 });
 
-formElement.addEventListener('submit', submitHandlerFormProfile); 
+formProfile.addEventListener('submit', submitHandlerFormProfile); 
 popupCardButtonAdd.addEventListener('click', () => openModalWindow(popupCard));
 popupCardButtonClose.addEventListener('click', () => closeModalWindow(popupCard));
 
@@ -62,7 +62,7 @@ function createCard (element) {
   const image = htmlElement.querySelector('.element__image');
   image.src = element.link;
   image.alt = element.name;
-  setEventElement(htmlElement); 
+  setElementEventListeners(htmlElement); 
   return htmlElement;
 };
 const reverseInitialCards = initialCards.reverse();
@@ -73,8 +73,7 @@ reverseInitialCards.forEach((element) => {
 
 /*функция для добавления новой карточки*/
 
-function submitHandlerFormPlace (evt) {
-  evt.preventDefault(); 
+function submitHandlerFormPlace () {
   closeModalWindow(popupCard);
   const inputObject = { name: formInputName.value, link: formInputLink.value };
   createCard (inputObject);
@@ -95,15 +94,15 @@ function likeHandler (evt) {
   evt.target.classList.toggle('element__like_active');
 };
 
-function setEventElement(htmlElement) {
+function setElementEventListeners(htmlElement) {
    const buttonDelete = htmlElement.querySelector('.element__trash'); 
    buttonDelete.addEventListener('click',deleteHandler); 
 
    const buttonLike = htmlElement.querySelector('.element__like'); 
    buttonLike.addEventListener('click',likeHandler);
 
-   const buttonOpenImagePopup = htmlElement.querySelector('.element__image'); 
-   buttonOpenImagePopup.addEventListener('click',openPopupImage);
+   const popupOpenImage = htmlElement.querySelector('.element__image'); 
+   popupOpenImage.addEventListener('click',openPopupImage);
 }; 
 
 /*попап с картинкой*/
@@ -124,10 +123,7 @@ function openPopupImage (evt) {
 popupImageButtonClose.addEventListener('click', () => closeModalWindow(popupImage));
 
 
-// закрытие попапов по нажатию на overlay
-const popups = Array.from(document.querySelectorAll('.popup')); //берем массив попапов
-
-popups.forEach((popupElement) => {
+[popupProfile, popupCard, popupImage].forEach((popupElement) => {
   popupElement.addEventListener('mousedown', function(evt) {
     if (evt.target === evt.currentTarget) {
       closeModalWindow(popupElement);
@@ -136,8 +132,8 @@ popups.forEach((popupElement) => {
 });
 
 //закрытие попапов при нажатии на esc
-function closeEsc(evt) {
-  if (evt.key === "Escape"){
+function closeOnEsc(evt) {
+  if (evt.key === keyEscape){
   const activePopup = document.querySelector('.popup_opened');
   closeModalWindow(activePopup);
 }

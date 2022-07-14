@@ -22,11 +22,9 @@ const checkInputValidity = (formElement, inputElement) => {
 
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
-    /*buttonElement.classList.remove('popup__button_active');*/
     buttonElement.classList.add('popup__button_disabled');
     buttonElement.setAttribute('disabled', true)
   } else {
-    /*buttonElement.classList.add('popup__button_active');*/
     buttonElement.classList.remove('popup__button_disabled');
     buttonElement.removeAttribute('disabled')
   }
@@ -39,7 +37,7 @@ const hasInvalidInput = (inputList) => {
 };
 
 const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll('.form__input'));
+  const inputList = Array.from(formElement.querySelectorAll('.popup__field'));
   const buttonElement = formElement.querySelector('.popup__button');
   toggleButtonState(inputList, buttonElement);
   inputList.forEach((inputElement) => {
