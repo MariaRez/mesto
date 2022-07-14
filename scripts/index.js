@@ -1,6 +1,5 @@
 const keyEscape = "Escape";
 const popupProfileButtonEdit = document.querySelector('.profile__edit-button');
-const popupProfileButtonClose = document.querySelector('.popup__close-button_place_profile');
 const popupProfile = document.querySelector('.popup_place_profile');
 const formProfile = document.querySelector('.form_place_profile');
 const profileName = document.querySelector('.profile__name'); 
@@ -9,7 +8,6 @@ const profileNewName = document.querySelector('.popup__field_type_name');
 const profileNewDescription = document.querySelector('.popup__field_type_description');
 const popupCard = document.querySelector('.popup_place_card');
 const popupCardButtonAdd = document.querySelector('.profile__add-button');
-const popupCardButtonClose = document.querySelector('.popup__close-button_place_card');
 
 const openModalWindow = (popup) => {
   popup.classList.add('popup_opened');
@@ -35,7 +33,6 @@ popupProfileButtonEdit.addEventListener('click', () => {
 
 formProfile.addEventListener('submit', submitHandlerFormProfile); 
 popupCardButtonAdd.addEventListener('click', () => openModalWindow(popupCard));
-popupCardButtonClose.addEventListener('click', () => closeModalWindow(popupCard));
 
 /* вторая часть функционала */
 
@@ -103,7 +100,6 @@ function setElementEventListeners(htmlElement) {
 /*попап с картинкой*/
 const popupImage = document.querySelector('.popup_place_image');
 const popupImageButtonOpen = document.querySelectorAll('.element__image');
-const popupImageButtonClose = document.querySelector('.popup__close-button_place_image');
 const popupImageActiveImage = document.querySelector('.popup__image');
 const popupImageActiveTitle = document.querySelector('.popup__text');
 
@@ -114,16 +110,14 @@ function openPopupImage (evt) {
   popupImageActiveTitle.textContent = evt.target.alt;
 }
 
-/*закрытие попапа с картинкой при нажатии на крестик*/
-popupImageButtonClose.addEventListener('click', () => closeModalWindow(popupImage));
-
-
 [popupProfile, popupCard, popupImage].forEach((popupElement) => {
   popupElement.addEventListener('mousedown', function(evt) {
     if (evt.target === evt.currentTarget) {
       closeModalWindow(popupElement);
     }
   });
+  const popupButtonClose = popupElement.querySelector('.popup__close-button');
+  popupButtonClose.addEventListener('click', () => closeModalWindow(popupElement)); 
 });
 
 //закрытие попапов при нажатии на esc
