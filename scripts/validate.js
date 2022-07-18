@@ -2,13 +2,13 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add(config.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add("error_active");
+  errorElement.classList.add(config.errorElementActive);
 };
 
 const hideInputError = (formElement, inputElement, config) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.remove(config.inputErrorClass);
-  errorElement.classList.remove("error_active");
+  errorElement.classList.remove(config.errorElementActive);
   errorElement.textContent = "";
 };
 
@@ -22,10 +22,10 @@ const checkInputValidity = (formElement, inputElement, config) => {
 
 const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add("popup__button_disabled");
+    buttonElement.classList.add(config.buttonElementDisabled);
     buttonElement.setAttribute("disabled", true);
   } else {
-    buttonElement.classList.remove("popup__button_disabled"); 
+    buttonElement.classList.remove(config.buttonElementDisabled); 
     buttonElement.removeAttribute("disabled");
   }
 };

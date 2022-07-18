@@ -138,8 +138,9 @@ validationSettings = {
   formElement: ".form",
   inputElement: ".popup__field",
   buttonElement: ".popup__button",
+  buttonElementDisabled: "popup__button_disabled",
   inputErrorClass: ".popup__field_type_error",
-  errorElement: ".error",
+  errorElementActive: "error_active",
 };
 
 enableValidation(validationSettings);
