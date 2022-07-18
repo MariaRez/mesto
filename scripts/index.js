@@ -120,14 +120,10 @@ function openPopupImage(evt) {
 
 [popupProfile, popupCard, popupImage].forEach((popupElement) => {
   popupElement.addEventListener("mousedown", function (evt) {
-    if (evt.target === evt.currentTarget) {
+    if ((evt.target === evt.currentTarget)|| evt.target.classList.contains('popup__close-button')) {
       closeModalWindow(popupElement);
     }
   });
-  const popupButtonClose = popupElement.querySelector(".popup__close-button");
-  popupButtonClose.addEventListener("click", () =>
-    closeModalWindow(popupElement)
-  );
 });
 
 //закрытие попапов при нажатии на esc
