@@ -1,4 +1,4 @@
-import initialCards from "./cards.js";
+import initialCards from "./initialCards.js";
 
 const keyEscape = "Escape";
 const popupProfileButtonEdit = document.querySelector(".profile__edit-button");
