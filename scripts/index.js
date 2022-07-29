@@ -1,3 +1,5 @@
+import initialCards from "./cards.js";
+
 const keyEscape = "Escape";
 const popupProfileButtonEdit = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector(".popup_place_profile");
@@ -133,14 +135,3 @@ function closeOnEsc(evt) {
     closeModalWindow(activePopup);
   }
 }
-
-validationSettings = {
-  formElement: ".form",
-  inputElement: ".popup__field",
-  buttonElement: ".popup__button",
-  buttonElementDisabled: "popup__button_disabled",
-  inputErrorClass: ".popup__field_type_error",
-  errorElementActive: "error_active",
-};
-
-enableValidation(validationSettings);

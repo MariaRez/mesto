@@ -57,3 +57,15 @@ const enableValidation = (config) => {
     setEventListeners(formElement, config);
   });
 };
+
+//забрала из index.js чтобы пока валидация работала
+validationSettings = {
+  formElement: ".form",
+  inputElement: ".popup__field",
+  buttonElement: ".popup__button",
+  buttonElementDisabled: "popup__button_disabled",
+  inputErrorClass: ".popup__field_type_error",
+  errorElementActive: "error_active",
+};
+
+enableValidation(validationSettings);
