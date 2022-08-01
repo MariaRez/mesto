@@ -1,6 +1,5 @@
-import {initialCards} from "./utils/utils.js"
+import {initialCards, openModalWindow, closeModalWindow, popupImage, openPopupImage} from "./utils/utils.js"
 
-const keyEscape = "Escape";
 const popupProfileButtonEdit = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector(".popup_place_profile");
 const formProfile = document.querySelector(".form_place_profile");
@@ -12,16 +11,6 @@ const profileNewDescription = document.querySelector(
 );
 const popupCard = document.querySelector(".popup_place_card");
 const popupCardButtonAdd = document.querySelector(".profile__add-button");
-
-const openModalWindow = (popup) => {
-  popup.classList.add("popup_opened");
-  document.addEventListener("keydown", closeOnEsc); // добавляем слушатель при открытом попапе - при нажатии закрываем попап
-};
-
-const closeModalWindow = (popup) => {
-  popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeOnEsc); // убираем слушатель
-};
 
 function submitHandlerFormProfile() {
   profileName.textContent = profileNewName.value;
@@ -107,19 +96,6 @@ function setElementEventListeners(htmlElement) {
   popupOpenImage.addEventListener("click", openPopupImage);
 }
 
-/*попап с картинкой*/
-const popupImage = document.querySelector(".popup_place_image");
-const popupImageButtonOpen = document.querySelectorAll(".element__image");
-const popupImageActiveImage = document.querySelector(".popup__image");
-const popupImageActiveTitle = document.querySelector(".popup__text");
-
-function openPopupImage(evt) {
-  openModalWindow(popupImage);
-  popupImageActiveImage.src = evt.target.src;
-  popupImageActiveImage.alt = evt.target.alt;
-  popupImageActiveTitle.textContent = evt.target.alt;
-}
-
 [popupProfile, popupCard, popupImage].forEach((popupElement) => {
   popupElement.addEventListener("mousedown", function (evt) {
     if ((evt.target === evt.currentTarget)|| evt.target.classList.contains('popup__close-button')) {
@@ -127,11 +103,3 @@ function openPopupImage(evt) {
     }
   });
 });
-
-//закрытие попапов при нажатии на esc
-function closeOnEsc(evt) {
-  if (evt.key === keyEscape) {
-    const activePopup = document.querySelector(".popup_opened");
-    closeModalWindow(activePopup);
-  }
-}
