@@ -25,7 +25,27 @@ export const initialCards = [
   }
 ];
 
+export const validationSettings = {
+  formElement: ".form",
+  inputElement: ".popup__field",
+  buttonElement: ".popup__button",
+  buttonElementDisabled: "popup__button_disabled",
+  inputErrorClass: ".popup__field_type_error",
+  errorElementActive: "error_active",
+};
+
 const keyEscape = "Escape";
+
+export const popupProfileButtonEdit = document.querySelector(".profile__edit-button");
+export const popupProfile = document.querySelector(".popup_place_profile");
+export const formProfile = document.querySelector(".form_place_profile");
+export const formCard = document.querySelector(".form_place_card");
+export const profileName = document.querySelector(".profile__name");
+export const profileDescription = document.querySelector(".profile__description");
+export const profileNewName = document.querySelector(".popup__field_type_name");
+export const profileNewDescription = document.querySelector(".popup__field_type_description");
+export const popupCard = document.querySelector(".popup_place_card");
+export const popupCardButtonAdd = document.querySelector(".profile__add-button");
 
 function closeOnEsc(evt) {
   if (evt.key === keyEscape) {

@@ -1,16 +1,8 @@
-import {initialCards, openModalWindow, closeModalWindow, popupImage, openPopupImage} from "./utils/utils.js"
+import {initialCards, validationSettings, popupProfileButtonEdit, popupProfile, formProfile, formCard, profileName, profileDescription, profileNewName, profileNewDescription, popupCard, popupCardButtonAdd, openModalWindow, closeModalWindow, popupImage, openPopupImage} from "./utils/utils.js"
+import {FormValidator} from "./components/validate.js";
 
-const popupProfileButtonEdit = document.querySelector(".profile__edit-button");
-const popupProfile = document.querySelector(".popup_place_profile");
-const formProfile = document.querySelector(".form_place_profile");
-const profileName = document.querySelector(".profile__name");
-const profileDescription = document.querySelector(".profile__description");
-const profileNewName = document.querySelector(".popup__field_type_name");
-const profileNewDescription = document.querySelector(
-  ".popup__field_type_description"
-);
-const popupCard = document.querySelector(".popup_place_card");
-const popupCardButtonAdd = document.querySelector(".profile__add-button");
+const profileValidation = new FormValidator(validationSettings, formProfile);
+const cardValidation = new FormValidator(validationSettings, formCard);
 
 function submitHandlerFormProfile() {
   profileName.textContent = profileNewName.value;
@@ -24,22 +16,17 @@ popupProfileButtonEdit.addEventListener("click", () => {
   profileNewDescription.value = profileDescription.textContent;
   const buttonElement = popupProfile.querySelector(".popup__button");
   buttonElement.classList.remove("popup__button_disabled");
-  buttonElement.removeAttribute("disabled");
+  buttonElement.removeAttribute("disabled"); //три строки заменить на публичный метод из валидации
 });
 
 formProfile.addEventListener("submit", submitHandlerFormProfile);
 popupCardButtonAdd.addEventListener("click", () => openModalWindow(popupCard));
 
-/* вторая часть функционала */
-
-const initialCardsTemplate =
-  document.querySelector(".elements-template").content;
+const initialCardsTemplate = document.querySelector(".elements-template").content;
 const elements = document.querySelector(".elements");
 const formInputName = document.querySelector(".popup__field_type_placename");
 const formInputLink = document.querySelector(".popup__field_type_placelink");
 
-/*описываем функции для карточек из заданого массива*/
-/*функция добавления массива*/
 const prependToContainer = (container, element) => {
   container.prepend(element);
 };
@@ -65,15 +52,13 @@ function submitHandlerFormPlace() {
   closeModalWindow(popupCard);
   const buttonElement = popupCard.querySelector(".popup__button");
   buttonElement.classList.add("popup__button_disabled");
-  buttonElement.setAttribute("disabled", true);
+  buttonElement.setAttribute("disabled", true); //три строки заменить на публичный метод из валидации
   const inputObject = { name: formInputName.value, link: formInputLink.value };
   createCard(inputObject);
   prependToContainer(elements, createCard(inputObject));
   formInputName.value = "";
   formInputLink.value = "";
 }
-
-const formCard = document.querySelector(".form_place_card");
 formCard.addEventListener("submit", submitHandlerFormPlace);
 
 /* функции удаления,лайка и открытия попапа карточки */
@@ -103,3 +88,6 @@ function setElementEventListeners(htmlElement) {
     }
   });
 });
+
+profileValidation.enableValidation();
+cardValidation.enableValidation();
