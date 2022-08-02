@@ -1,28 +1,28 @@
 export const initialCards = [
   {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    name: "Архыз",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
   },
   {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    name: "Челябинская область",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
   },
   {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    name: "Иваново",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
   },
   {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    name: "Камчатка",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
   },
   {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    name: "Холмогорский район",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
   },
   {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
+    name: "Байкал",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+  },
 ];
 
 export const validationSettings = {
@@ -36,16 +36,24 @@ export const validationSettings = {
 
 const keyEscape = "Escape";
 
-export const popupProfileButtonEdit = document.querySelector(".profile__edit-button");
+export const popupProfileButtonEdit = document.querySelector(
+  ".profile__edit-button"
+);
 export const popupProfile = document.querySelector(".popup_place_profile");
 export const formProfile = document.querySelector(".form_place_profile");
 export const formCard = document.querySelector(".form_place_card");
 export const profileName = document.querySelector(".profile__name");
-export const profileDescription = document.querySelector(".profile__description");
+export const profileDescription = document.querySelector(
+  ".profile__description"
+);
 export const profileNewName = document.querySelector(".popup__field_type_name");
-export const profileNewDescription = document.querySelector(".popup__field_type_description");
+export const profileNewDescription = document.querySelector(
+  ".popup__field_type_description"
+);
 export const popupCard = document.querySelector(".popup_place_card");
-export const popupCardButtonAdd = document.querySelector(".profile__add-button");
+export const popupCardButtonAdd = document.querySelector(
+  ".profile__add-button"
+);
 
 function closeOnEsc(evt) {
   if (evt.key === keyEscape) {
@@ -56,21 +64,21 @@ function closeOnEsc(evt) {
 
 export const openModalWindow = (popup) => {
   popup.classList.add("popup_opened");
-  document.addEventListener("keydown", closeOnEsc); // добавляем слушатель при открытом попапе - при нажатии закрываем попап
+  document.addEventListener("keydown", closeOnEsc);
 };
 
 export const closeModalWindow = (popup) => {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeOnEsc); // убираем слушатель
+  document.removeEventListener("keydown", closeOnEsc);
 };
 
 export const popupImage = document.querySelector(".popup_place_image");
-const popupImageActiveImage = document.querySelector(".popup__image");
-const popupImageActiveTitle = document.querySelector(".popup__text");
 
-export function openPopupImage(evt) {
-  openModalWindow(popupImage);
-  popupImageActiveImage.src = evt.target.src;
-  popupImageActiveImage.alt = evt.target.alt;
-  popupImageActiveTitle.textContent = evt.target.alt;
-}
+export const cleanPopup = (popup) => {
+  popup
+    .querySelectorAll(".error")
+    .forEach((element) => (element.textContent = ""));
+  popup
+    .querySelectorAll(".popup__field")
+    .forEach((element) => element.classList.remove(".popup__field_type_error"));
+};
