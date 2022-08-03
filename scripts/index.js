@@ -32,6 +32,7 @@ function submitHandlerFormProfile() {
 
 popupProfileButtonEdit.addEventListener("click", () => {
   openModalWindow(popupProfile);
+  profileValidation.resetValidation();
   profileNewName.value = profileName.textContent;
   profileNewDescription.value = profileDescription.textContent;
 });
@@ -40,6 +41,7 @@ formProfile.addEventListener("submit", submitHandlerFormProfile);
 
 popupCardButtonAdd.addEventListener("click", () => {
   openModalWindow(popupCard);
+  cardValidation.resetValidation();
 });
 
 function submitHandlerFormPlace(evt) {
