@@ -73,12 +73,3 @@ export const closeModalWindow = (popup) => {
 };
 
 export const popupImage = document.querySelector(".popup_place_image");
-
-export const cleanPopup = (popup) => {
-  popup
-    .querySelectorAll(".error")
-    .forEach((element) => (element.textContent = ""));
-  popup
-    .querySelectorAll(".popup__field")
-    .forEach((element) => element.classList.remove(".popup__field_type_error"));
-};

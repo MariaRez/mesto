@@ -5,6 +5,9 @@ export class FormValidator {
       this._inputList = Array.from(
         form.querySelectorAll(this._settings.inputElement)
       );
+      this._buttonElement = this._form.querySelector(
+        this._settings.buttonElement
+      );
     }
   
     _showInputError(inputElement) {
@@ -30,9 +33,6 @@ export class FormValidator {
     }
   
     _buttonDisabled() {
-      this._buttonElement = this._form.querySelector(
-        this._settings.buttonElement
-      );
       this._buttonElement.classList.add(this._settings.buttonElementDisabled);
       this._buttonElement.setAttribute("disabled", true);
     }

@@ -16,6 +16,9 @@ export class Card {
     this._image.src = this._link;
     this._deleteButton = this._element.querySelector(".element__trash");
     this._likeButton = this._element.querySelector(".element__like");
+    this._popupImage = document.querySelector(".popup_place_image");
+    this._popupImageActiveImage = this._popupImage.querySelector(".popup__image");
+    this._popupImageActiveTitle = this._popupImage.querySelector(".popup__text");
     this._setEventListeners();
 
     return this._element;
@@ -54,12 +57,6 @@ export class Card {
   }
 
   _openPopupImageHandler() {
-    this._popupImage = document.querySelector(".popup_place_image");
-    this._popupImageActiveImage =
-      this._popupImage.querySelector(".popup__image");
-    this._popupImageActiveTitle =
-      this._popupImage.querySelector(".popup__text");
-
     openModalWindow(this._popupImage);
     this._popupImageActiveImage.src = this._link;
     this._popupImageActiveImage.alt = this._link;
