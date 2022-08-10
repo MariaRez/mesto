@@ -14,9 +14,9 @@ import {
   openModalWindow,
   closeModalWindow,
   popupImage,
-} from "./utils/utils.js";
-import { FormValidator } from "./components/FormValidator.js";
-import { Card } from "./components/Card.js";
+} from "../utils/constants.js";
+import { FormValidator } from "../components/FormValidator.js";
+import { Card } from "../components/Card.js";
 
 const profileValidation = new FormValidator(validationSettings, formProfile);
 const cardValidation = new FormValidator(validationSettings, formCard);

@@ -1,4 +1,4 @@
-import { openModalWindow } from "../utils/utils.js";
+import { openModalWindow } from "../utils/constants.js";
 
 export class Card {
   constructor(data, selector) {
