@@ -14,9 +14,18 @@ import {
   openModalWindow,
   closeModalWindow,
   popupImage,
+  popupImageActiveTitle,
+  popupImageActiveImage
 } from "../utils/constants.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Card } from "../components/Card.js";
+
+function handleCardClick(name, link) { //исправить
+  openModalWindow(popupImage);
+  popupImageActiveImage.src = link;
+  popupImageActiveImage.alt = name;
+  popupImageActiveTitle.textContent = name;
+}
 
 const profileValidation = new FormValidator(validationSettings, formProfile);
 const cardValidation = new FormValidator(validationSettings, formCard);
@@ -56,7 +65,7 @@ function submitHandlerFormPlace(evt) {
 }
 
 function createCard(element, selector) {
-  const card = new Card(element, selector);
+  const card = new Card(element, selector, handleCardClick);
   const cardElement = card.createCard();
 
   return cardElement;
@@ -69,7 +78,7 @@ initialCards.forEach((element) => {
 
 formCard.addEventListener("submit", submitHandlerFormPlace);
 
-[popupProfile, popupCard, popupImage].forEach((popupElement) => {
+[popupProfile, popupCard, popupImage].forEach((popupElement) => { //убрать
   popupElement.addEventListener("mousedown", function (evt) {
     if (
       evt.target === evt.currentTarget ||

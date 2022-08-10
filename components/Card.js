@@ -1,10 +1,9 @@
-import { openModalWindow } from "../utils/constants.js";
-
 export class Card {
-  constructor(data, selector) {
+  constructor(data, selector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._selector = selector;
+    this._handleCardClick = handleCardClick;
   }
 
   createCard() {
@@ -16,9 +15,6 @@ export class Card {
     this._image.src = this._link;
     this._deleteButton = this._element.querySelector(".element__trash");
     this._likeButton = this._element.querySelector(".element__like");
-    this._popupImage = document.querySelector(".popup_place_image");
-    this._popupImageActiveImage = this._popupImage.querySelector(".popup__image");
-    this._popupImageActiveTitle = this._popupImage.querySelector(".popup__text");
     this._setEventListeners();
 
     return this._element;
@@ -44,7 +40,7 @@ export class Card {
     });
 
     this._image.addEventListener("click", () => {
-      this._openPopupImageHandler();
+      this._handleCardClick(this._name, this._link);
     });
   }
 
@@ -54,12 +50,5 @@ export class Card {
 
   _likeHandler() {
     this._likeButton.classList.toggle("element__like_active");
-  }
-
-  _openPopupImageHandler() {
-    openModalWindow(this._popupImage);
-    this._popupImageActiveImage.src = this._link;
-    this._popupImageActiveImage.alt = this._link;
-    this._popupImageActiveTitle.textContent = this._name;
   }
 }

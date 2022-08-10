@@ -34,7 +34,7 @@ export const validationSettings = {
   errorElementActive: "error_active",
 };
 
-const keyEscape = "Escape";
+const keyEscape = "Escape"; //убрать
 
 export const popupProfileButtonEdit = document.querySelector(
   ".profile__edit-button"
@@ -55,21 +55,23 @@ export const popupCardButtonAdd = document.querySelector(
   ".profile__add-button"
 );
 
-function closeOnEsc(evt) {
+function closeOnEsc(evt) { //убрать
   if (evt.key === keyEscape) {
     const activePopup = document.querySelector(".popup_opened");
     closeModalWindow(activePopup);
   }
 }
 
-export const openModalWindow = (popup) => {
+export const openModalWindow = (popup) => { //убрать
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closeOnEsc);
 };
 
-export const closeModalWindow = (popup) => {
+export const closeModalWindow = (popup) => { //убрать
   popup.classList.remove("popup_opened");
   document.removeEventListener("keydown", closeOnEsc);
 };
 
 export const popupImage = document.querySelector(".popup_place_image");
+export const popupImageActiveTitle = popupImage.querySelector(".popup__text");
+export const popupImageActiveImage = popupImage.querySelector(".popup__image");
