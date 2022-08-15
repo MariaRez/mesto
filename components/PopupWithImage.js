@@ -1,6 +1,6 @@
 import { Popup } from "../components/Popup.js";
 
-export class PopupWithImage extends Popup {
+export class PopupWithImage extends Popup { //перезаписывает родительский метод open. В методе open класса PopupWithImage нужно вставлять в попап картинку с src изображения и подписью к картинке.
   constructor(selector) {
     super(selector); //берем от родителя
     this._text = this._popup.querySelector(".popup__text");

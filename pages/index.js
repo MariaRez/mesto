@@ -33,13 +33,13 @@ const elements = document.querySelector(".elements");
 const formInputName = document.querySelector(".popup__field_type_placename");
 const formInputLink = document.querySelector(".popup__field_type_placelink");
 
-function submitHandlerFormProfile() {
+function submitHandlerFormProfile() { //исправть
   profileName.textContent = profileNewName.value;
   profileDescription.textContent = profileNewDescription.value;
   closeModalWindow(popupProfile);
 }
 
-popupProfileButtonEdit.addEventListener("click", () => {
+popupProfileButtonEdit.addEventListener("click", () => { //исправить
   openModalWindow(popupProfile);
   profileValidation.resetValidation();
   profileNewName.value = profileName.textContent;
