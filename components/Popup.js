@@ -14,16 +14,21 @@ export class Popup {
         document.removeEventListener("keydown", this._handleEscClose);
     }
 
-	_handleEscClose (evt) { //приватный метод _handleEscClose, который содержит логику закрытия попапа клавишей Esc.
+	_handleEscClose (evt) { //приватный метод _handleEscClose, который содержит логику закрытия попапа клавишей Esc
         const keyEscape = "Escape";
         if (evt.key === keyEscape) {
             this.close();
         }
     }
 
-    //необходимо добавить приватный метод закрытия через нажание на overlay
+    _handleOverlayClose(evt) { // приватный метод, который содержит логику закрытия попапа при нажатии на overlay
+        if (evt.target === evt.currentTarget) {
+            this.close();
+        }
+      }
 
-	setEventListeners () {
+	setEventListeners () { //публичный метод setEventListeners, который добавляет слушатель клика иконке закрытия попапа и при нажатии на overlay
+        this._popup.addEventListener("mousedown", this._handleOverlayClose);
         this._popup.querySelector(".popup__close-button").addEventListener("click", this.close.bind(this));
-    } //публичный метод setEventListeners, который добавляет слушатель клика иконке закрытия попапа
+    }
 }
