@@ -34,44 +34,17 @@ export const validationSettings = {
   errorElementActive: "error_active",
 };
 
-const keyEscape = "Escape"; //убрать
-
 export const popupProfileButtonEdit = document.querySelector(
   ".profile__edit-button"
 );
-export const popupProfile = document.querySelector(".popup_place_profile");
-export const formProfile = document.querySelector(".form_place_profile");
-export const formCard = document.querySelector(".form_place_card");
-export const profileName = document.querySelector(".profile__name");
-export const profileDescription = document.querySelector(
-  ".profile__description"
-);
-export const profileNewName = document.querySelector(".popup__field_type_name");
-export const profileNewDescription = document.querySelector(
-  ".popup__field_type_description"
-);
-export const popupCard = document.querySelector(".popup_place_card");
 export const popupCardButtonAdd = document.querySelector(
   ".profile__add-button"
 );
 
-function closeOnEsc(evt) { //убрать
-  if (evt.key === keyEscape) {
-    const activePopup = document.querySelector(".popup_opened");
-    closeModalWindow(activePopup);
-  }
-}
+export const formProfile = document.querySelector(".form_place_profile");
+export const formCard = document.querySelector(".form_place_card");
 
-export const openModalWindow = (popup) => { //убрать
-  popup.classList.add("popup_opened");
-  document.addEventListener("keydown", closeOnEsc);
-};
-
-export const closeModalWindow = (popup) => { //убрать
-  popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeOnEsc);
-};
-
-export const popupImage = document.querySelector(".popup_place_image");
-export const popupImageActiveTitle = popupImage.querySelector(".popup__text");
-export const popupImageActiveImage = popupImage.querySelector(".popup__image");
+export const profileNewName = document.querySelector(".popup__field_type_name");
+export const profileNewDescription = document.querySelector(
+  ".popup__field_type_description"
+);

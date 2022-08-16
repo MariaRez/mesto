@@ -1,4 +1,4 @@
-export default class Section {
+export class Section {
   constructor({ items, renderer }, selector) { //	Первым параметром конструктора принимает объект с двумя свойствами: items и renderer. Свойство items — это массив данных, которые нужно добавить на страницу при инициализации класса. Свойство renderer — это функция, которая отвечает за создание и отрисовку данных на странице.
     this._items = items;
     this._renderer = renderer;

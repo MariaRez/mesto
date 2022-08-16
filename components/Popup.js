@@ -21,14 +21,14 @@ export class Popup {
         }
     }
 
-    _handleOverlayClose(evt) { // приватный метод, который содержит логику закрытия попапа при нажатии на overlay
-        if (evt.target === evt.currentTarget) {
-            this.close();
-        }
-      }
-
 	setEventListeners () { //публичный метод setEventListeners, который добавляет слушатель клика иконке закрытия попапа и при нажатии на overlay
-        this._popup.addEventListener("mousedown", this._handleOverlayClose);
-        this._popup.querySelector(".popup__close-button").addEventListener("click", this.close.bind(this));
-    }
+        this._popup.addEventListener("mousedown", (evt) => {
+            if (evt.target.classList.contains("popup_opened")) {
+              this.close();
+            }
+            if (evt.target.classList.contains("popup__close-button")) {
+              this.close();
+            }
+          });
+        }
 }

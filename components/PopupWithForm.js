@@ -9,9 +9,9 @@ export class PopupWithForm extends Popup {
     }
 
     _getInputValues () { //приватный метод _getInputValues, который собирает данные всех полей формы
-        this._formValues = {}; //собирает сюда
-        this._inputList.forEach((input) => {this._formValues[input.name] = input.value});
-        return this._formValues;
+        const formValues = {}; //собирает сюда
+        this._inputList.forEach((input) => (formValues[input.name] = input.value));
+        return formValues;
     }
 
     close() { //перезаписывает родительский метод close, так как при закрытии попапа форма должна ещё и сбрасываться.
