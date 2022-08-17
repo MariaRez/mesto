@@ -34,9 +34,9 @@
     <div class="popup__container">
      <h3 class="popup__title">Редактировать профиль</h3>
       <form name="formProfile" class="form form_place_profile" novalidate>
-        <input type="text" placeholder="Имя" class="popup__field popup__field_type_name form__input" name="Name" id="user-name" required minlength="2" maxlength="40">
+        <input type="text" placeholder="Имя" class="popup__field popup__field_type_name form__input" name="name" id="user-name" required minlength="2" maxlength="40">
         <span id="user-name-error" class="error form__input-error"></span> 
-        <input type="text" placeholder="О себе" class="popup__field popup__field_type_description form__input" name="about" id="description" required minlength="2" maxlength="200">
+        <input type="text" placeholder="О себе" class="popup__field popup__field_type_description form__input" name="description" id="description" required minlength="2" maxlength="200">
         <span id="description-error" class="error form__input-error"></span>
         <button class="popup__button" type="submit">Сохранить</button>
         <button aria-label="Close" class="popup__close-button popup__close-button_place_profile" type="button"></button>
@@ -47,7 +47,7 @@
     <div class="popup__container"> 
      <h3 class="popup__title">Новое место</h3>
      <form name="formPlace" class="form form_place_card" novalidate>
-        <input type="text" placeholder="Название" class="popup__field popup__field_type_placename form__input" name="name-card" id="name-card" required minlength="2" maxlength="30">
+        <input type="text" placeholder="Название" class="popup__field popup__field_type_placename form__input" name="name" id="name-card" required minlength="2" maxlength="30">
         <span id="name-card-error" class="error form__input-error"></span> 
         <input type="url" placeholder="Ссылка на картинку" class="popup__field popup__field_type_placelink form__input" name="link" id="link" required>
         <span id="link-error" class="error form__input-error" ></span>
