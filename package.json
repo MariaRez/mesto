@@ -1,0 +1,23 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "------- Данная проектная работа предназначена для отработки изученного материала в Яндекс Практикуме, в частности отработки начальных (фундаментальных) знаний по Java Script. * [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1) Проект представляет cервис Mesto - интерактивную страницу, куда можно добавлять фотографии, удалять их и ставить лайки. * [Ссылка на проектную работу](https://mariarez.github.io/mesto/)",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariaRez/mesto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MariaRez/mesto/issues"
+  },
+  "homepage": "https://github.com/MariaRez/mesto#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
