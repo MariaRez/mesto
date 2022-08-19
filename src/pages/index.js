@@ -1,3 +1,5 @@
+import "../pages/index.css"; //импортировали css
+
 import {
   initialCards,
   validationSettings,
