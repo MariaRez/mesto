@@ -4,18 +4,20 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
 
 module.exports = {
-  entry: { main: './src/pages/index.js' },
+  entry: {
+    main: './src/pages/index.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-        publicPath: ''
+    publicPath: '',
   },
-    mode: 'development',
+  mode: 'development',
   devServer: {
     static: path.resolve(__dirname, './dist'),
+    open: true,
     compress: true,
-    port: 8080,
-    open: true
+    port: 8080
   },
   module: {
     rules: [{
@@ -24,12 +26,8 @@ module.exports = {
       exclude: '/node_modules/'
     },
     {
-      test: /\.html$/i,
-      loader: "html-loader",
-    },
-    {
-      test: /\.css$/i,
-      use: ["style-loader", "css-loader"],
+      test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+      type: 'asset/resource',
     },
     {
       test: /\.css$/,
