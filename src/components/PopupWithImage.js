@@ -11,7 +11,7 @@ export class PopupWithImage extends Popup {
   open(name, link) {
     //корректируем родительский метод открытия для попапа с картинкой - у него есть специфическая функциональность
     this._image.src = link;
-    this._text.alt = name;
+    this._image.alt = name;
     this._text.textContent = name;
     super.open(); //берем от родителя
   }
