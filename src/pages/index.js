@@ -79,14 +79,17 @@ const cards = new Section(
 
 cards.renderItems();
 
-//открытие попапа для редактирования профиля
-popupProfileButtonEdit.addEventListener("click", function () {
+//функция открытия попапа для редактирования профиля
+function editProfile () {
   popupProfile.open();
   const profileInfo = profile.getUserInfo();
   profileNewName.value = profileInfo.elementName;
   profileNewDescription.value = profileInfo.elementDescription;
   profileValidation.resetValidation();
-});
+};
+
+//открытие попапа для редактирования профиля
+popupProfileButtonEdit.addEventListener("click", editProfile);
 
 //открытие попапа для добавления карточки
 popupCardButtonAdd.addEventListener("click", function () {

@@ -46,6 +46,7 @@ export class Card {
 
   _deleteHandler() {
     this._element.remove();
+    this._element = null;
   }
 
   _likeHandler() {
