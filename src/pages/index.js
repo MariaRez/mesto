@@ -3,10 +3,14 @@ import "../pages/index.css"; //импортировали css
 import {
   initialCards,
   validationSettings,
+  popupAvatarButtonEdit,
   popupProfileButtonEdit,
   popupCardButtonAdd,
   formProfile,
   formCard,
+  formAvatar,
+  avatar,
+  newAvatar,
   profileNewName,
   profileNewDescription,
 } from "../utils/constants.js";
@@ -16,6 +20,19 @@ import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
+
+//аватар пользователя
+const popupAvatar = new PopupWithForm(
+  ".popup_place_avatar",
+  handleSubmitAvatar
+);
+
+function handleSubmitAvatar() {
+  avatar.src = newAvatar.value;
+  popupAvatar.close();
+}
+
+popupAvatar.setEventListeners();
 
 //профиль пользователя
 const popupProfile = new PopupWithForm(
@@ -88,6 +105,12 @@ function editProfile () {
   profileValidation.resetValidation();
 };
 
+//открытие попапа для редактирования картинки
+popupAvatarButtonEdit.addEventListener("click", function () {
+  popupAvatar.open();
+  avatarValidation.resetValidation();
+});
+
 //открытие попапа для редактирования профиля
 popupProfileButtonEdit.addEventListener("click", editProfile);
 
@@ -98,7 +121,9 @@ popupCardButtonAdd.addEventListener("click", function () {
 });
 
 //валидация
+const avatarValidation = new FormValidator(validationSettings, formAvatar);
 const profileValidation = new FormValidator(validationSettings, formProfile);
 const cardValidation = new FormValidator(validationSettings, formCard);
+avatarValidation.enableValidation();
 profileValidation.enableValidation();
 cardValidation.enableValidation();

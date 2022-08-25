@@ -12,7 +12,9 @@
   </header>
   <main>
   <section class="profile">
-       <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватарка">
+    <div class="profile__avatar">
+      <img class="profile__avatar-image" src="<%=require('./images/image.jpg')%>" alt="Аватарка">
+    </div>
        <div class="profile__profile-info">
            <div class="profile__name-button">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -28,6 +30,17 @@
   <footer class="footer">
    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
+  <div class="popup popup_place_avatar">
+    <div class="popup__small-container">
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form name="formAvatar" class="form form_place_avatar" novalidate>
+        <input type="url" placeholder="Ссылка на картинку" class="popup__field popup__field_type_avatarlink form__input" name="link" id="avatar-link" required>
+        <span id="avatar-link-error" class="error form__input-error" ></span>
+        <button class="popup__button" type="submit">Сохранить</button>
+        <button aria-label="Close" class="popup__close-button popup__close-button_place_profile" type="button"></button>
+      </form>
+    </div>
+  </div>
   <div class="popup popup_place_profile">
     <div class="popup__container">
      <h3 class="popup__title">Редактировать профиль</h3>
