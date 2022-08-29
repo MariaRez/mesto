@@ -20,7 +20,6 @@ import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
-import { data } from "autoprefixer";//////////////данные с сервера
 
 //аватар пользователя
 const popupAvatar = new PopupWithForm(
@@ -96,23 +95,6 @@ const cards = new Section(
 );
 
 cards.renderItems();
-///////////////////////// пробуем отправлять запросы
-function getItems () {
-  fetch('https://mesto.nomoreparties.co/v1/cohort-49/cards', {
-    headers: {
-      authorization: '5a8f95ef-4485-42ab-852e-86340ac2e69c'
-    }
-  })
-  .then((res) => {
-    res.json().then((data) => console.log(data)) //что приходят данные
-  })
-  .catch(() => {
-      alert("Не удалось загрузить карточки") //при ошибке
-  })
-};
-
-getItems();
-////////////////////////
 //функция открытия попапа для редактирования профиля
 function editProfile () {
   popupProfile.open();
