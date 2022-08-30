@@ -43,9 +43,9 @@ const popupAvatar = new PopupWithForm( //идеально
 
 function handleSubmitAvatar(data) { //идеально
   popupAvatar.renderLoading(true);
-  api.setUserInfo(data)
+  api.editAvatar(data.avatar)
   .then((res) => { 
-    profile.setUserAvatar(res);
+    profile.setUserInfo(res);
     popupAvatar.close();
   })
   .catch((err) => {
@@ -66,7 +66,7 @@ const popupProfile = new PopupWithForm( //идеально
 
 function handleSubmitProfile(data) { //идеально
   popupProfile.renderLoading(true);
-  api.setUserInfo(data)
+  api.editProfile(data.name, data.description)
   .then((res) => { 
     profile.setUserInfo(res);
     popupProfile.close();
@@ -128,8 +128,6 @@ cards.renderItems(); //!!!!!!!
 //функция открытия попапа для редактирования аватара
 function editAvatar () { //идеально
   popupAvatar.open();
-  const profileInfo = profile.getUserInfo();
-  profileNewAvatar.value = profileInfo.elementAvatar;
   avatarValidation.resetValidation();
 };
 
@@ -137,8 +135,8 @@ function editAvatar () { //идеально
 function editProfile () { //идеально
   popupProfile.open();
   const profileInfo = profile.getUserInfo();
-  profileNewName.value = profileInfo.elementName;
-  profileNewDescription.value = profileInfo.elementDescription;
+  profileNewName.value = profileInfo.name;
+  profileNewDescription.value = profileInfo.description;
   profileValidation.resetValidation();
 };
 
