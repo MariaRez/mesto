@@ -9,8 +9,7 @@ import {
   formProfile,
   formCard,
   formAvatar,
-  avatar,
-  newAvatar,
+  profileNewAvatar,
   profileNewName,
   profileNewDescription,
 } from "../utils/constants.js";
@@ -129,6 +128,8 @@ cards.renderItems(); //!!!!!!!
 //функция открытия попапа для редактирования аватара
 function editAvatar () { //идеально
   popupAvatar.open();
+  const profileInfo = profile.getUserInfo();
+  profileNewAvatar.value = profileInfo.elementAvatar;
   avatarValidation.resetValidation();
 };
 
