@@ -1,8 +1,9 @@
 export class UserInfo {
-    constructor({ profileName, profileDescription }) {
-      //Принимает в конструктор объект с селекторами двух элементов: элемента имени пользователя и элемента информации о себе.
+    constructor({ profileName, profileDescription, profileAvatar }) {
+      //Принимает в конструктор объект с селекторами трех элементов: элемента имени пользователя, элемента информации о себе и элемент аватара.
       this._name = document.querySelector(profileName);
       this._description = document.querySelector(profileDescription);
+      this._avatar = document.querySelector(profileAvatar);
     }
   
     getUserInfo() {
@@ -11,6 +12,8 @@ export class UserInfo {
       const userData = {
         elementName: this._name.textContent,
         elementDescription: this._description.textContent,
+        elementAvatar: this._avatar.src,
+        _id: this._id
       };
       return userData;
     }
@@ -20,5 +23,10 @@ export class UserInfo {
       // принимает новые данные пользователя и добавляет их на страницу
       this._name.textContent = profile.name;
       this._description.textContent = profile.description;
+      this._id = profile._id;
+    }
+
+    setUserAvatar(profile){
+      this._avatar.src = profile.avatar;
     }
 }  

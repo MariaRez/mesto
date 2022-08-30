@@ -7,6 +7,8 @@ export class PopupWithForm extends Popup {
     this._handleSubmit = handleSubmit;
     this._inputList = Array.from(this._popup.querySelectorAll(".popup__field")); //все инпуты в данном попапе
     this._form = this._popup.querySelector(".form");
+    this._button = this._form.querySelector(".popup__button");
+    this._buttonText = this._button.textContent; //первоначальный текст карточки "Сохранить/Создать"
   }
 
   _getInputValues() {
@@ -30,4 +32,12 @@ export class PopupWithForm extends Popup {
       this._handleSubmit(this._getInputValues());
     });
   }
+  
+  renderLoading (isLoading){
+    if (isLoading){
+      this._button.textContent = "Сохранение..." //пока грузиться
+    } else {
+      this._button.textContent = this._buttonText; //оригинальный текст
+    }
+  };
 }
