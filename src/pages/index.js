@@ -9,7 +9,7 @@ import {
   formProfile,
   formCard,
   formAvatar,
-  profileNewAvatar,
+  profileNewAvatar, //вероятно не нужен
   profileNewName,
   profileNewDescription,
 } from "../utils/constants.js";
@@ -20,6 +20,7 @@ import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
+import { PopupWithConfirm } from "../components/PopupWithConfirm";
 
 const api = new Api({ //идеально
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-49',
