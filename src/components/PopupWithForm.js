@@ -1,7 +1,7 @@
 import { Popup } from "../components/Popup.js";
 
 export class PopupWithForm extends Popup {
-  constructor(selector, handleSubmit) {
+  constructor(selector, {handleSubmit}) {
     //кроме селектора попапа принимает в конструктор колбэк сабмита формы.
     super(selector);
     this._handleSubmit = handleSubmit;

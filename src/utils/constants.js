@@ -1,30 +1,3 @@
-export const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
-
 export const validationSettings = {
   formElement: ".form",
   inputElement: ".popup__field",
@@ -47,8 +20,6 @@ export const popupCardButtonAdd = document.querySelector(
 export const formProfile = document.querySelector(".form_place_profile");
 export const formCard = document.querySelector(".form_place_card");
 export const formAvatar = document.querySelector(".form_place_avatar");
-
-export const profileNewAvatar = document.querySelector(".popup__field_type_avatarlink");
 
 export const profileNewName = document.querySelector(".popup__field_type_name");
 export const profileNewDescription = document.querySelector(

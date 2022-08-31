@@ -1,5 +1,5 @@
 export class Api {
-    constructor(baseUrl, headers) {
+    constructor({baseUrl, headers}) {
         this._baseUrl = baseUrl;
         this._headers = headers;
     }
@@ -29,13 +29,13 @@ export class Api {
         });
     } 
 
-    editProfile (profileName, profileDescription) { //Редактирование профиля - имя и описание
+    editProfile (data) { //Редактирование профиля - имя и описание
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify ({
-                name: profileName,
-                about: profileDescription
+                name: data.name,
+                about: data.description,
             })
         })
         .then(res => {
@@ -63,8 +63,8 @@ export class Api {
         });
     }
 
-    deleteCard(cardId) { // Удаление карточки
-        return fetch(`${this._baseUrl}/cards/${cardId}`, {
+    deleteCard(_id) { // Удаление карточки
+        return fetch(`${this._baseUrl}/cards/${_id}`, {
             method: 'DELETE',
             headers: this._headers,
         })
@@ -76,8 +76,8 @@ export class Api {
         });
     }
 
-    makeLike(cardId) { //Поставить лайк
-        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    makeLike(_id) { //Поставить лайк
+        return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
             method: 'PUT',
             headers: this._headers,
         })
@@ -89,8 +89,8 @@ export class Api {
         });
     }
 
-    deleteLike(cardId) {//Убрать лайк
-        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    deleteLike(_id) {//Убрать лайк
+        return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
             method: 'DELETE',
             headers: this._headers,
         })
