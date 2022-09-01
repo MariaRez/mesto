@@ -33,9 +33,9 @@ export class Api {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
-            body: JSON.stringify ({
+            body: JSON.stringify({
                 name: data.name,
-                about: data.description,
+                about: data.about,
             })
         })
         .then(res => {
@@ -50,9 +50,9 @@ export class Api {
         return fetch(`${this._baseUrl}/cards`, {
             method: 'POST',
             headers: this._headers,
-            body: JSON.stringify ({
+            body: JSON.stringify({
                 name: data.name,
-                limk: data.link
+                link: data.link
             })
         })
         .then(res => {
@@ -106,7 +106,7 @@ export class Api {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
-            body: JSON.stringify (avatar)
+            body: JSON.stringify(avatar)
         })
         .then(res => {
             if (res.ok) {

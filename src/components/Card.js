@@ -28,7 +28,7 @@ export class Card {
     }
 
     this.likeCounter(this._likes);
-    this.makeActiveLike();
+    this._makeActiveLike();
     this._setEventListeners();
 
     return this._element;

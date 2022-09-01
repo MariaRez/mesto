@@ -1,4 +1,4 @@
-import "../pages/index.css"; //импортировали css
+import "../pages/index.css";
 
 import {
   validationSettings,
@@ -23,10 +23,10 @@ import { PopupWithConfirm } from "../components/PopupWithConfirm";
 
 //запросы через токен и идентификатор
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-49',
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-49",
   headers: {
-    authorization: '5a8f95ef-4485-42ab-852e-86340ac2e69c',
-    'Content-Type': 'application/json'
+    authorization: "5a8f95ef-4485-42ab-852e-86340ac2e69c",
+    "Content-Type": "application/json",
   }
 });
 
@@ -107,7 +107,7 @@ function handleSubmitCard(element) {
   popupCard.renderLoading(true);
   api.addNewCard(element)
   .then((res) => {
-    const element = createCard(item);
+    const element = createCard(res);
     cards.addItem(element);
     popupCard.close();
   })
@@ -197,7 +197,7 @@ function editProfile () {
   popupProfile.open();
   const profileInfo = profile.getUserInfo();
   profileNewName.value = profileInfo.name;
-  profileNewDescription.value = profileInfo.description;
+  profileNewDescription.value = profileInfo.about;
   profileValidation.resetValidation();
 };
 
