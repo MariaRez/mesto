@@ -21,7 +21,8 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { PopupWithConfirm } from "../components/PopupWithConfirm";
 
-const api = new Api({ ///8
+//запросы через токен и идентификатор
+const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-49',
   headers: {
     authorization: '5a8f95ef-4485-42ab-852e-86340ac2e69c',
@@ -29,21 +30,23 @@ const api = new Api({ ///8
   }
 });
 
-let userId; //8
+let userId;
 
-const profile = new UserInfo({ //8
+//информация о пользователе
+const profile = new UserInfo({
   profileName: ".profile__name",
   profileDescription: ".profile__description",
   profileAvatar: ".profile__avatar-image",
 });
 
-//аватар пользователя
-const popupAvatar = new PopupWithForm( //8
+//форма аватара пользователя
+const popupAvatar = new PopupWithForm(
   ".popup_place_avatar",
   {handleSubmit: handleSubmitAvatar}
 );
 
-function handleSubmitAvatar(data) { //8
+//обработчик для аватара пользователя
+function handleSubmitAvatar(data) {
   popupAvatar.renderLoading(true);
   api.editAvatar(data)
   .then((res) => { 
@@ -58,15 +61,17 @@ function handleSubmitAvatar(data) { //8
   });
 }
 
-popupAvatar.setEventListeners(); //8
+//слушатели для попапа с аватаром пользователя
+popupAvatar.setEventListeners();
 
-//профиль пользователя
-const popupProfile = new PopupWithForm( //8
+//форма профиля пользователя
+const popupProfile = new PopupWithForm(
   ".popup_place_profile",
   {handleSubmit: handleSubmitProfile}
 );
 
-function handleSubmitProfile(data) { //8
+//обработчик для профиля пользователя
+function handleSubmitProfile(data) {
   popupProfile.renderLoading(true);
   api.editProfile(data)
   .then((res) => { 
@@ -81,16 +86,24 @@ function handleSubmitProfile(data) { //8
   });
 }
 
-popupProfile.setEventListeners(); //8
+//слушатели для попапа с профилем пользователя
+popupProfile.setEventListeners();
 
-//попап удаления
-const popupDelete = new PopupWithConfirm (".popup_place_delete",  {handleSubmit: () => {},}); //8
-popupDelete.setEventListeners(); //8
+//форма подтверждения удаления каточки
+const popupDelete = new PopupWithConfirm(".popup_place_delete", {
+  handleSubmit: () => {},
+});
 
-//функционал создания новой карточки
-const popupCard = new PopupWithForm(".popup_place_card", {handleSubmit: handleSubmitCard}); //8
+//слушатели для попапа удаления карточки
+popupDelete.setEventListeners();
 
-function handleSubmitCard(element) { //8
+//форма создания (добавления) карточки
+const popupCard = new PopupWithForm(".popup_place_card", {
+  handleSubmit: handleSubmitCard,
+});
+
+//обработчик для создания (добавления) карточки
+function handleSubmitCard(element) {
   popupCard.renderLoading(true);
   api.addNewCard(element)
   .then((res) => {
@@ -106,18 +119,22 @@ function handleSubmitCard(element) { //8
   });
 }
 
-popupCard.setEventListeners(); //8
+//слушатели для попапа создания (добавления) карточки
+popupCard.setEventListeners();
 
-const popupImage = new PopupWithImage(".popup_place_image");//8
-popupImage.setEventListeners();//8
+//форма для большой картинки
+const popupImage = new PopupWithImage(".popup_place_image");
 
-/*карточки*/
-//функция для открытия попапа с большой картинкой
-function handleCardClick(name, link) { //8
+//слушатели для попапа большой картинки
+popupImage.setEventListeners();
+
+//обработчик для открытия попапа с большой картинкой
+function handleCardClick(name, link) {
   popupImage.open(name, link);
 }
 
-function createCard(element) { //8
+//функция создания карточки (для всех карточек)
+function createCard(element) {
   const card = new Card(element, ".elements-template", handleCardClick, {
     userId: userId,
     handleCardDelete: () => {
@@ -151,23 +168,24 @@ function createCard(element) { //8
     },
   });
 
-  const cardElement = card.createCard(); //берем из класса
+  const cardElement = card.createCard();
   return cardElement;
 }
 
-const cards = new Section( //8
+//секция для карточек
+const cards = new Section(
   {
     items: [],
     renderer: (item) => {
-      const element = createCard(item);
-      cards.addItem(element);
+      const cardElement = createCard(item);
+      cards.addItem(cardElement);
     },
   },
   ".elements"
 );
 
 //функция открытия попапа для редактирования аватара
-function editAvatar () { //8
+function editAvatar () {
   popupAvatar.open();
   const profileInfo = profile.getUserInfo();
   profileNewAvatar.value = profileInfo.avatar;
@@ -175,7 +193,7 @@ function editAvatar () { //8
 };
 
 //функция открытия попапа для редактирования профиля
-function editProfile () { //8
+function editProfile () {
   popupProfile.open();
   const profileInfo = profile.getUserInfo();
   profileNewName.value = profileInfo.name;
@@ -183,30 +201,34 @@ function editProfile () { //8
   profileValidation.resetValidation();
 };
 
-//открытие попапа для редактирования аватара - 8
-popupAvatarButtonEdit.addEventListener("click", editAvatar);
-
-//открытие попапа для редактирования профиля - 8
-popupProfileButtonEdit.addEventListener("click", editProfile);
-
-//открытие попапа для добавления карточки - 8
-popupCardButtonAdd.addEventListener("click", function () {
+//функция открытия попапа для добавления карточки
+function addCard () {
   popupCard.open();
   cardValidation.resetValidation();
-});
+}
 
-Promise.all([api.getUserInfo(), api.getInitialCards() ]) //8 set
+//открытие попапа для редактирования аватара
+popupAvatarButtonEdit.addEventListener("click", editAvatar);
+
+//открытие попапа для редактирования профиля
+popupProfileButtonEdit.addEventListener("click", editProfile);
+
+//открытие попапа для добавления карточки 
+popupCardButtonAdd.addEventListener("click", addCard);
+
+//данные
+Promise.all([api.getUserInfo(), api.getInitialCards() ])
 .then(([userInfo, initialCards]) => {
   userId = userInfo._id;
   profile.setUserInfo(userInfo);
-  cards.setCardInfo(initialCards); //???
+  cards.setCardInfo(initialCards);
   cards.renderItems(initialCards.reverse()); 
 })
 .catch((err) => {
   console.log(err);
 })
 
-//валидация - идеально //8
+//раздел валидации
 const avatarValidation = new FormValidator(validationSettings, formAvatar);
 const profileValidation = new FormValidator(validationSettings, formProfile);
 const cardValidation = new FormValidator(validationSettings, formCard);
