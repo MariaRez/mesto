@@ -7,6 +7,10 @@ export class Section {
     this._container = document.querySelector(selector); //Второй параметр конструктора — селектор контейнера, в который нужно добавлять созданные элементы.
   }
 
+  setCardInfo(items){
+    this._items = items;
+}
+
   renderItems() {
     //публичный метод, который отвечает за отрисовку всех элементов. Отрисовка каждого отдельного элемента должна осуществляться функцией renderer.
     this._items.forEach((item) => this._renderer(item));

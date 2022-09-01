@@ -22,7 +22,11 @@ export class Card {
     this._deleteButton = this._element.querySelector(".element__trash");
     this._likeButton = this._element.querySelector(".element__like");
     this._likeCounter = this._element.querySelector(".element__like-counter");
-    
+
+    if (this._id !== this._ownerId) {
+      this._deleteButton.style.display = "none"; //чтобы нельзя было удалить не свою карточку
+    }
+
     this.likeCounter(this._likes);
     this.makeActiveLike();
     this._setEventListeners();

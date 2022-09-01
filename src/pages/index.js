@@ -8,6 +8,7 @@ import {
   formProfile,
   formCard,
   formAvatar,
+  profileNewAvatar,
   profileNewName,
   profileNewDescription,
 } from "../utils/constants.js";
@@ -168,6 +169,8 @@ const cards = new Section( //8
 //функция открытия попапа для редактирования аватара
 function editAvatar () { //8
   popupAvatar.open();
+  const profileInfo = profile.getUserInfo();
+  profileNewAvatar.value = profileInfo.avatar;
   avatarValidation.resetValidation();
 };
 
@@ -196,6 +199,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards() ]) //8 set
 .then(([userInfo, initialCards]) => {
   userId = userInfo._id;
   profile.setUserInfo(userInfo);
+  cards.setCardInfo(initialCards); //???
   cards.renderItems(initialCards.reverse()); 
 })
 .catch((err) => {
