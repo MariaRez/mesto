@@ -430,12 +430,24 @@ template {
   }
 }
 .profile__avatar {
+  display: flex;
+  position: relative;
+}
+
+.profile__avatar:hover:after{
+  background-image: url(a086f758840ae814ecde.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
   width: 100%;
-  max-width: 120px;
   height: 100%;
-  max-height: 120px;
-  object-fit: cover;
   border-radius: 100px;
+  background-color: black;
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 @media (max-width: 767px) { 
@@ -443,6 +455,12 @@ template {
     margin: 0 auto;
   }
 }
+.profile__avatar-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 100px;
+  }
 .profile__profile-info {
     max-width: 336px;
     display: flex;
@@ -664,6 +682,10 @@ align-items: center;
     white-space: nowrap;
     overflow: hidden;
 }
+.element__like-zone{
+    max-width: 22px;
+    max-height: 35px;
+}
 .element__like {
     min-width: 22px;
     min-height: 19px;
@@ -681,6 +703,15 @@ align-items: center;
 }
 .element__like_active {
     background-image: url(b3fffa95db38f0e8da51.png);
+}
+.element__like-counter{
+    margin: 0;
+    color: #000000;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    padding-top: 3px;
 }
 .element__trash {
     margin: 0;
@@ -748,6 +779,28 @@ align-items: center;
     visibility: visible;
     opacity: 1;
 }
+.popup__small-container {
+    position: relative;
+    max-width: 430px;
+    height: 272px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) { 
+    .popup__small-container {
+        max-width: 282px;
+        height: 264px;
+    }
+}
 .popup__container {
     position: relative;
     max-width: 430px;
@@ -770,8 +823,30 @@ align-items: center;
         height: 322px;
     }
 }
+.popup__delete-container{
+    position: relative;
+    max-width: 430px;
+    height: 181px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) { 
+    .popup__delete-container {
+        max-width: 282px;
+        height: 173px;
+    }
+}
 .popup__title {
-    margin: 34px 64px 54px 36px; /*размеры уточнила, соотвествуют макету*/
+    margin: 34px 64px 54px 36px;
     padding: 0;
     max-width: 358px;
     font-weight: 900;
@@ -784,6 +859,24 @@ align-items: center;
 @media (max-width: 767px) { 
     .popup__title {
         margin: 25px 22px 75px 22px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+.popup__title_small{
+    margin: 34px 64px 20px 36px;
+    padding: 0;
+    max-width: 358px;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 23px;
+    color: #000000;
+    text-align: start;
+}
+
+@media (max-width: 767px) { 
+    .popup__title_small {
+        margin: 25px 22px 20px 22px;
         font-size: 18px;
         line-height: 22px;
     }
@@ -825,6 +918,15 @@ align-items: center;
 @media (max-width: 767px) {
     .popup__field_type_description {
         margin: 0px 22px 0px 22px;
+    }
+}
+.popup__field_type_avatarlink {
+    margin: 0 36px 0px 36px;
+}
+
+@media (max-width: 767px) {
+    .popup__field_type_avatarlink {
+        margin: 0 22px 0px 22px;
     }
 }
 .error {
