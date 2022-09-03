@@ -117,7 +117,7 @@ function handleSubmitCard(element) {
   .finally(() => {
     popupCard.renderLoading(false)
   });
-}
+};
 
 //слушатели для попапа создания (добавления) карточки
 popupCard.setEventListeners();
@@ -131,17 +131,17 @@ popupImage.setEventListeners();
 //обработчик для открытия попапа с большой картинкой
 function handleCardClick(name, link) {
   popupImage.open(name, link);
-}
+};
 
 //функция создания карточки (для всех карточек)
-function createCard(element) {
-  const card = new Card(element, ".elements-template", handleCardClick, {
+function createCard(data) {
+  const card = new Card(data, ".elements-template", handleCardClick, {
     userId: userId,
     handleCardDelete: () => {
       popupDelete.open();
       popupDelete.setSubmitDelete({
         handleSubmitDelete: () => {
-          api.deleteCard(element._id)
+          api.deleteCard(data._id)
           .then(() => {
             card.deleteCardHandler();
             popupDelete.close();
@@ -151,7 +151,7 @@ function createCard(element) {
       })
     },
     handleMakeLike: () => {
-      api.makeLike(element._id)
+      api.makeLike(data._id)
       .then((res)=>{
         card.likeCounter(res.likes);
         card.makeLikeHandler();
@@ -159,10 +159,10 @@ function createCard(element) {
       .catch((err) => console.log(err))
     },
     handleDeleteLike: () => {
-      api.deleteLike(element._id)
+      api.deleteLike(data._id)
       .then((res)=>{
         card.likeCounter(res.likes);
-        card. deleteLikeHandler();
+        card.deleteLikeHandler();
       })
       .catch((err) => console.log(err))
     },

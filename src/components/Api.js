@@ -3,6 +3,7 @@ export class Api {
         this._baseUrl = baseUrl;
         this._headers = headers;
     }
+    
     getUserInfo() { //Загрузка информации о пользователе с сервера (имя, описание и аватар)
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'GET',
@@ -52,7 +53,7 @@ export class Api {
             headers: this._headers,
             body: JSON.stringify({
                 name: data.name,
-                link: data.link
+                link: data.link,
             })
         })
         .then(res => {
