@@ -34,8 +34,8 @@
     <div class="popup__small-container">
       <h3 class="popup__title">Обновить аватар</h3>
       <form name="formAvatar" class="form form_place_avatar" novalidate>
-        <input type="url" placeholder="Ссылка на картинку" class="popup__field popup__field_type_avatarlink form__input" name="link" id="avatar-link" required>
-        <span id="avatar-link-error" class="error form__input-error" ></span>
+        <input type="url" placeholder="Ссылка на картинку" class="popup__field popup__field_type_avatarlink form__input" name="avatar" id="avatar" required>
+        <span id="avatar-error" class="error form__input-error" ></span>
         <button class="popup__button" type="submit">Сохранить</button>
         <button aria-label="Close" class="popup__close-button popup__close-button_place_profile" type="button"></button>
       </form>
@@ -45,10 +45,10 @@
     <div class="popup__container">
      <h3 class="popup__title">Редактировать профиль</h3>
       <form name="formProfile" class="form form_place_profile" novalidate>
-        <input type="text" placeholder="Имя" class="popup__field popup__field_type_name form__input" name="name" id="user-name" required minlength="2" maxlength="40">
-        <span id="user-name-error" class="error form__input-error"></span> 
-        <input type="text" placeholder="О себе" class="popup__field popup__field_type_description form__input" name="description" id="description" required minlength="2" maxlength="200">
-        <span id="description-error" class="error form__input-error"></span>
+        <input type="text" placeholder="Имя" class="popup__field popup__field_type_name form__input" name="name" id="name" required minlength="2" maxlength="40">
+        <span id="name-error" class="error form__input-error"></span> 
+        <input type="text" placeholder="О себе" class="popup__field popup__field_type_description form__input" name="about" id="about" required minlength="2" maxlength="200">
+        <span id="about-error" class="error form__input-error"></span>
         <button class="popup__button" type="submit">Сохранить</button>
         <button aria-label="Close" class="popup__close-button popup__close-button_place_profile" type="button"></button>
       </form>
