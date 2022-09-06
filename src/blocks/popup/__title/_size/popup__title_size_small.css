@@ -1,4 +1,4 @@
-.popup__title_small{
+.popup__title_size_small{
     margin: 34px 64px 20px 36px;
     padding: 0;
     max-width: 358px;
@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 767px) { 
-    .popup__title_small {
+    .popup__title_size_small {
         margin: 25px 22px 20px 22px;
         font-size: 18px;
         line-height: 22px;
