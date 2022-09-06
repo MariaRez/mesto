@@ -16,8 +16,14 @@ export class UserInfo {
     }
   
     setUserInfo(profile) {
-      this._name.textContent = profile.name;
-      this._about.textContent = profile.about;
-      this._avatar.src = profile.avatar;
+      if (profile.name) {
+        this._name.textContent = profile.name;
+      }
+      if (profile.about) {
+        this._about.textContent = profile.about;
+      }
+      if (profile.avatar) {
+        this._avatar.src = profile.avatar   
+      }
     }
 }  
